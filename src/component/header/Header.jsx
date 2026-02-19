@@ -23,8 +23,8 @@ function Header({ ActivePage, setActivePage }) {
         <div className="left-side">
           <div className="theme-container">
             <button onClick={toggleTheme} className="theme-btn">
-              {dark ? (<img src="public\assets\sun.png" alt="Light Mode" className="theme-icon" />) 
-              : (<img src="public\assets\moon.png" alt="Dark Mode" className="theme-icon" />)}
+              {dark ? (<img src="https://cerine0205.github.io/portfolio-system/assets/sun.png" alt="Light Mode" className="theme-icon" />) 
+              : (<img src="https://cerine0205.github.io/portfolio-system/assets/moon.png" alt="Dark Mode" className="theme-icon" />)}
             </button>
           </div>
 
