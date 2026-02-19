@@ -3,12 +3,12 @@ import Projects from "../projects/Projects";
 import About from "../about/About";
 import Contact from "../contact/Contact";
 
-function MainContent({ ActivePage }) {
+function MainContent({ ActivePage,setActivePage, activeTag, setActiveTag }) {
  
     if (ActivePage === "Home") {
-      return <Home/>;
+      return <Home activePage={ActivePage} setActivePage={setActivePage}/>;
     } else if (ActivePage === "Projects") {
-      return <Projects/>;
+      return <Projects activeTag={activeTag} setActiveTag={setActiveTag}/>;
     } else if (ActivePage === "About") {
       return <About/>;
     } else if (ActivePage === "Contact") {

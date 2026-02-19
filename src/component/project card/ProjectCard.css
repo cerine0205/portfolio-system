@@ -1,0 +1,91 @@
+.project-card {
+  background: var(--color-card); /* استخدام المتغير للون الخلفية */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير التغيير */
+  margin: 15px;
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* تكبير الكارد عند التمرير */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.project-image {
+  width: 100%; /* لتغطية كامل العرض */
+  height: 200px; /* تحديد الارتفاع الثابت */
+  background-color: var(--color-surface); /* لون الخلفية عند عدم وجود صورة */
+  background-image: url('/assets/background.png'); /* تحديد مسار الصورة */
+  background-size: cover; /* لتغطية المساحة بالكامل */
+  background-position: center; /* لضمان التناسب الجيد للصورة */
+  border-radius: 10px; 
+  object-fit: cover;
+  
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary); /* تغيير اللون وفقًا للمتغير */
+  margin: 10px 0;
+}
+
+.project-description {
+  font-size: 14px;
+  color: var(--color-text-secondary); /* تغيير اللون وفقًا للمتغير */
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+.Project-tags {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap; /* حتى لا تخرج التاقات من حدود الكارد */
+}
+
+.tag {
+  background-color: var(--color-accent-soft); /* استخدام المتغير لعرض اللون */
+  color: var(--color-accent); /* استخدام المتغير للون النص */
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+  background-color: rgba(123, 58, 236, 0.4); /* تغيير لون التاق عند التمرير */
+}
+
+.featured {
+  position: absolute;
+  top: 30px; /* المسافة من الأعلى (يمكنك تعديل الرقم حسب الحاجة) */
+  right: 10px;  /* المسافة من اليمين */
+  background-color: #7b3aec;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+
+.project-date {
+  font-size: 12px;  /* حجم الخط */
+  color: rgba(255, 255, 255, 0.5);  /* اللون الأخف للتاريخ */
+  margin-top: 6px;
+  margin-right: 10px;  
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

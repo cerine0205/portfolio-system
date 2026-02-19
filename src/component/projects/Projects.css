@@ -1,0 +1,74 @@
+.projects {
+  background-color: var(--color-background); /* Background color */
+  color: var(--color-text-primary); /* Text color */
+  padding: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font family */
+}
+
+.project-header {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.work-text {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--color-accent); /* Secondary text color */
+  margin-bottom: 8px;
+}
+
+.projects-title {
+  font-size: 45px;
+  font-weight: bold;
+  color: var(--color-text-primary); /* Primary text color */
+  margin-bottom: 20px;
+}
+
+.tags-nav {
+  margin-top: 20px;
+}
+
+.tag-list {
+  list-style-type: none; /* Removes the bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+}
+
+.tag-item {
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: 14px;
+  background-color: var(--color-surface); /* Surface color */
+  border-radius: 5px; /* Rounded corners */
+  color: var(--color-text-muted); /* Muted text color */
+  border: 1px solid var(--color-border); /* Border color */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tag-item:hover {
+  background-color: var(--color-accent-hover); /* Hover effect */
+}
+
+.tag-item-active {
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: 14px;
+  background-color: var(--color-accent); /* Active tag color */
+  border-radius: 5px; /* Rounded corners */
+  color: white; /* White text for active tag */
+  border: 1px solid var(--color-accent); /* Active tag border */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.projects-card {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
