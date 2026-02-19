@@ -2,7 +2,6 @@
 .header {
   width: 100%;
   margin-left: calc(50% - 50vw);
-
   background: var(--color-background);
   border-bottom: 1px solid var(--color-border);
 }
@@ -12,19 +11,19 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 18px 24px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* تخصيص العناصر الجانبية (يمين ويسار) */
 .left-side {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-/* Logo */
+/* تعديل تصميم اللوقو */
 .logo h1 {
   margin: 0;
   font-size: 22px;
@@ -52,17 +51,17 @@
 .theme-icon {
   width: 24px; /* عرض الصورة */
   height: 24px; /* ارتفاع الصورة */
-  transition: all 0.3s ease; /* لتغيير اللون إذا أردت في المستقبل */
+  transition: all 0.3s ease;
 }
 
-/* Right side group */
+/* تخصيص الجزء الأيمن من الهيدر */
 .right-side {
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
-/* Nav list */
+/* قائمة التنقل (Nav) */
 .nav-list {
   list-style: none;
   display: flex;
@@ -72,7 +71,7 @@
   padding: 0;
 }
 
-/* Nav items */
+/* تخصيص العناصر في القائمة */
 .nav-item,
 .nav-item-active {
   font-size: 12px;
@@ -106,19 +105,16 @@
   border-radius: 999px;
 }
 
-/* Admin button */
+/* تخصيص زر Admin */
 .admin-btn {
   padding: 10px 18px;
   border-radius: 10px;
-
   border: 1px solid rgba(123, 58, 236, 0.5);
   background: rgba(123, 58, 236, 0.08);
-
   color: var(--color-accent);
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -127,4 +123,46 @@
   background: var(--color-accent-soft);
   border-color: var(--color-accent);
   color: var(--color-text-primary);
+}
+
+/* ==============================
+   Media Query للجوال
+   ============================== */
+@media (max-width: 768px) {
+  /* تعديل حجم اللوجو */
+  .logo h1 {
+    font-size: 18px;  /* تصغير حجم النص */
+  }
+
+  /* تعديل حجم الأيقونات */
+  .theme-icon {
+    width: 18px; /* تصغير الأيقونات */
+    height: 18px;
+  }
+
+  /* تعديل الزر */
+  .admin-btn {
+   padding: 6px 12px;   /* تصغير المسافة الداخلية */
+  font-size: 10px;     /* تصغير حجم النص */
+  width: auto;         /* عرض الزر يكون تلقائي بناءً على المحتوى */
+  height: auto;        /* ارتفاع الزر يتناسب مع المحتوى */
+  border-radius: 8px;
+  }
+
+  /* تعديل القائمة */
+  .nav-item, .nav-item-active {
+    font-size: 10px;  /* تصغير حجم النص في عناصر التنقل */
+  }
+
+  .nav-list {
+    gap: 10px;  /* تقليل المسافة بين العناصر */
+  }
+
+  .right-side{
+    gap: 5px;
+  }
+
+  .left-side{
+    gap: 3px;
+  }
 }
