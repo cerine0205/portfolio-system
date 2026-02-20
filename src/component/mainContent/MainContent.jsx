@@ -10,7 +10,7 @@ function MainContent({ ActivePage,setActivePage, activeTag, setActiveTag }) {
     } else if (ActivePage === "Projects") {
       return <Projects activeTag={activeTag} setActiveTag={setActiveTag}/>;
     } else if (ActivePage === "About") {
-      return <About/>;
+      return <About setActivePage={setActivePage}/>;
     } else if (ActivePage === "Contact") {
       return <Contact/>;
     }       

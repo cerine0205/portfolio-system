@@ -4,7 +4,7 @@ import MainContent from "../component/mainContent/MainContent";
 
 function PortfolioLayout() {
   const [ActivePage, setActivePage] = useState("Home");
-  const [activeTag, setActiveTag] = useState("All");
+  const [activeTag, setActiveTag] = useState("ALL");
   
 
   return (

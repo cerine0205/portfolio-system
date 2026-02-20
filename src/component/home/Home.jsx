@@ -1,7 +1,11 @@
 import ProjectCard from "../project card/ProjectCard";
 import "./Home.css";
+import { projectsData } from "../../data/projectsData";
+import { useState } from "react";
 
 function Home({ activePage, setActivePage }) {
+    const [projects, setProjects] = useState(projectsData);
+
     return (
         <div className="home">
             <p className="intro-text">Software Engineer & Systems Thinker</p>
@@ -30,23 +34,16 @@ function Home({ activePage, setActivePage }) {
 
                 <div className="Featured-card">
 
-                    <ProjectCard
-                        projectImage="/path/to/image.jpg"
-                        Featured={true}
-                        projectDate={2024}
-                        projectName="Lattice DB"
-                        projectDesciption="An embedded graph database Written in Rust, with a query language inspired by Datalog."
-                        projectTags={['Rust', 'Systems', 'Database']}  // تمرير التاقات كـ array
-                    />
-
-                    <ProjectCard
-                        projectImage="/path/to/image.jpg"
-                        Featured={true}
-                        projectDate={2024}
-                        projectName="Lattice DB"
-                        projectDesciption="An embedded graph database Written in Rust, with a query language inspired by Datalog."
-                        projectTags={['Rust', 'Systems', 'Database']}  // تمرير التاقات كـ array
-                    />
+                    {projects.filter(project => project.featured === true).map((project) => (
+                        <ProjectCard
+                            key={project.id}
+                            projectImage={project.image}
+                            Featured={project.featured}
+                            projectDate={project.year}
+                            projectName={project.name}
+                            projectDesciption={project.description}
+                            projectTags={project.tags} />
+                    ))}
                 </div>
             </div>
         </div>

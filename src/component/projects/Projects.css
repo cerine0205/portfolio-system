@@ -26,15 +26,16 @@
 
 .tags-nav {
   margin-top: 20px;
+  max-width: 1200px;
 }
 
 .tag-list {
-  list-style-type: none; /* Removes the bullet points */
+  display: flex;
+  flex-wrap: wrap;   /* هذا المهم 👈 */
+  gap: 10px;         /* مسافة بين التاقات */
   padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: left;
-  gap: 10px;
+  list-style: none;
 }
 
 .tag-item {
@@ -71,4 +72,60 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+/* Search Container */
+.search-container {
+  margin: 10px 0 18px;
+  width: 440px;      /* 👈 أصغر */
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+/* Search Input */
+.search-input {
+  width: 100%;
+  height: 35px;      /* 👈 أقصر */
+  padding: 6px;
+  box-sizing: border-box;
+  padding-left: 0;
+  font-size: 13px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+
+  color: var(--color-text-primary);
+  outline: none;
+
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+
+
+/* Placeholder */
+.search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Focus خفيف ومرتب */
+.search-input:focus {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+/* Hover خفيف جداً */
+.search-input:hover {
+  border-color: rgba(255,255,255,0.15);
 }
