@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Header.css";
 
-function Header({ ActivePage, setActivePage }) {
+function Header({ ActivePage, setActivePage,handelAdmin }) {
   const nav_item = [
     { id: 1, label: "Home" },
     { id: 2, label: "Projects" },
@@ -54,7 +54,8 @@ function Header({ ActivePage, setActivePage }) {
             </ul>
           </nav>
 
-          <button className="admin-btn">Admin →</button>
+          <button className="admin-btn"
+          onClick={handelAdmin}>Admin →</button>
         </div>
 
       </div>
