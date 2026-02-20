@@ -1,0 +1,127 @@
+
+/* ============================
+   Terminal Custom Styles
+   ============================ */
+.admin {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+}
+
+.terminal {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* الهيدر */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  padding-left: 20px;
+  border-bottom: 1px solid var(--color-border); /* إضافة خط تحت الهيدر */
+  background-color: var(--color-surface); /* لون الخلفية */
+}
+
+
+.terminal-header .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px; /* المسافة بين كل نقطة */
+  
+}
+
+.terminal-header .dot.red {
+  background-color: var(--terminal-red); /* اللون الأحمر */
+}
+
+.terminal-header .dot.yellow {
+  background-color: var(--terminal-yellow); /* اللون الأصفر */
+}
+
+.terminal-header .dot.green {
+  background-color: var(--terminal-green); /* اللون الأخضر */
+}
+
+.terminal-header .terminal-title {
+  font-weight: 700;
+  color: var(--terminal-gray)
+}
+
+
+
+
+.terminal-content {
+  position: relative;
+  color: var(--color-text-primary);
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+
+.terminal-content p {
+    margin: 0;
+    margin-bottom: 10px; /* المسافة بين الفقرات */
+}
+
+
+/* تنسيق النص */
+.terminal-text {
+  font-weight: 400;  /* عادي */
+  color: var(--terminal-green);  /* نفس اللون في الصورة */
+  margin-bottom: 10px;  /* المسافة أسفل النص */
+}
+
+/* تنسيق النص في الـ "login-instruction" */
+.login-instruction {
+  font-weight: 300;  /* وزن الخط أخف */
+  color: var(--terminal-green);  /* نفس اللون */
+}
+
+
+
+
+
+.terminal-input {
+  background: transparent;
+  color: var(--terminal-green);
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.terminal-input::placeholder {
+  color: var(--terminal-green);
+}
+
+
+.command {
+  color: var(--terminal-gray)
+}
+
+.success {
+  color: var(--terminal-green); 
+}
+
+.error {
+  color: var(--terminal-red); 
+}
+.console-text {
+  color: var(--color-text-primary);
+}
+
+
+/* زيادة المسافة بين الأسطر */
+.terminal-output {
+  white-space: pre-wrap; /* يسمح بعرض الأسطر الجديدة بشكل صحيح */
+}
+
+.terminal-output span {
+  display: block; /* يجعل كل سطر في سطر جديد */
+  margin-bottom: 6px; /* زيادة المسافة بين كل سطر */
+}
