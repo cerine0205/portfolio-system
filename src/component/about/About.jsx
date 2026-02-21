@@ -1,8 +1,7 @@
 import "./About.css";
-import { tagsData } from "../../data/projectsData";
 import { certificatesData } from "../../data/certifcatesData";
 
-function About({ setActivePage }) {
+function About({ setActivePage,tagsData }) {
   return (
     <div className="about">
 

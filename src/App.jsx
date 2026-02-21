@@ -1,24 +1,20 @@
 import PortfolioLayout from "./layout/PortfolioLayout";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Admin from "./pages/Admin";
+import { useState } from "react";
+import { projectsData,tagsData } from "./data/projectsData";
 
 function App() {
-
-  const help = `Available commands:
-- lsProj             : List all projects.
-- delProj            : Delete a project.
-- editProj           : Edit a project.
-- createProj         : Create a new project.
-- lsMsgs             : List all received messages.
-- exit               : Exit the admin terminal.`;
+  const [projects,setProjects] = useState(projectsData);
+  
 
   return (
     <div className="App">
            <HashRouter >
             <Routes>
-              <Route path ="/" element={<PortfolioLayout />} />
-              <Route path ="/Admin" element={<Admin email="admin@example.com" help={help} />} />
-                <Route element={<PortfolioLayout />} path={"*"}></Route>
+              <Route path ="/" element={<PortfolioLayout projects={projects} setProjects={setProjects} tagData={tagsData} />} />
+              <Route path ="/Admin" element={<Admin email="admin@example.com" projects={projects} setProjects={setProjects} />} />
+              <Route element={<PortfolioLayout projects={projects} setProjects={setProjects} tagData={tagsData} />} path={"*"}></Route>
             </Routes>
             
             </HashRouter>

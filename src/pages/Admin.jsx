@@ -1,43 +1,72 @@
 import "./Admin.css";
-import { useState,useRef,useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
+import { runCommand } from "../terminal/terminalCommands";
+import { resolveAction } from "../terminal/terminalActions";
+import { handleCreateInput } from "../terminal/terminalCreateFlow";
 
-function Admin({email, help}) {
+function Admin({ email, projects, setProjects }) {
   const [command, setCommand] = useState("");
   const [output, setOutput] = useState([]);
+  const [isCreating, setIsCreating] = useState(false);
+  const [draft, setDraft] = useState({});
 
   const terminalEndRef = useRef(null);
 
   const handleCommand = (e) => {
-    if (e.key === "Enter") {
-      if (command.trim().toLowerCase() === "login") {
-        setOutput([
-          ...output,
-          { text: `${email}:~$ ${command}`, className: "command" },
-          { text: "Authentication successful! Welcome, Admin.", className: "success" }
-        ]);
-      }else if (command.trim().toLowerCase() === "clear") {
-        setOutput([]);
-      } else if (command.trim().toLowerCase() === "help") {
-        setOutput([
-          ...output,
-          { text: `${email}:~$ ${command}`, className: "command" },
-          { text: help, className: "console-text" }
-        ]);
-      }
-      else{
-        setOutput([
-          ...output,
-          { text: `${email}:~$ ${command}`, className: "command" },
-          { text: "Command not recognized", className: "error" }
-        ]);
-      }
+    if (e.key !== "Enter") return;
+
+    e.preventDefault();
+
+    if (isCreating) {
+      const result = handleCreateInput({
+        value: command,
+        email,
+        draft,
+        projects,
+      });
+
+      setOutput(prev => [...prev, ...result.lines]);
+      setDraft(result.nextDraft);
       setCommand("");
+
+      if (result.done && result.newProject) {
+        setProjects(prev => [...prev, result.newProject]);
+        setIsCreating(false);
+      }
+
+      return;
     }
+
+
+    const res = runCommand(command, { email });
+    const resolved = resolveAction( res,
+      {
+        projects,
+        setProjects,
+        setOutput,
+        setCommand,
+        setIsCreating,
+        setDraft
+      });
+
+    if (resolved.type === "CLEAR") {
+      setOutput([]);
+      setCommand("");
+      return;
+    }
+
+    if (resolved.type === "LINES" ||resolved.type === "ACTION") {
+      setOutput(prev => [...prev, ...resolved.lines]);
+      setCommand("");
+      return;
+    }
+
   };
 
+
   useEffect(() => {
-  terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
-}, [output]); // تحريك الترمنال عند تغيير output
+    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [output]); // تحريك الترمنال عند تغيير output
 
   return (
     <div className="admin">
@@ -63,7 +92,7 @@ function Admin({email, help}) {
             autoFocus
           />
 
-<div ref={terminalEndRef}></div>
+          <div ref={terminalEndRef}></div>
 
         </div>
       </div>

@@ -1,11 +1,9 @@
 import ProjectCard from "../project card/ProjectCard";
 import "./Projects.css";
-import { projectsData, tagsData } from "../../data/projectsData";
 import { useState } from "react";
 
-function Projects({ activeTag, setActiveTag }) {
-  const [projects] = useState(projectsData);
-  const [filteredProjects, setFilteredProjects] = useState(projectsData);
+function Projects({ activeTag, setActiveTag ,tagsData,projects}) {
+  const [filteredProjects, setFilteredProjects] = useState(projects);
   const [searchTerm, setSearchTerm] = useState("");
 
   const filterProjectsByTag = (tag, searchValue = searchTerm) => {

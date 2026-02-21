@@ -3,7 +3,7 @@ import Header from "../component/header/Header";
 import MainContent from "../component/mainContent/MainContent";
 import { useNavigate } from "react-router-dom";
 
-function PortfolioLayout() {
+function PortfolioLayout({projects,setProjects,tagData}) {
   const [ActivePage, setActivePage] = useState("Home");
   const [activeTag, setActiveTag] = useState("ALL");
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function PortfolioLayout() {
   return (
     <div >   
       <Header ActivePage={ActivePage} setActivePage={setActivePage} handelAdmin={handelAdmin} />
-      <MainContent ActivePage={ActivePage} setActivePage={setActivePage} activeTag={activeTag} setActiveTag={setActiveTag} />
+      <MainContent ActivePage={ActivePage} setActivePage={setActivePage} activeTag={activeTag} setActiveTag={setActiveTag} tagsData={tagData} projects={projects} setProjects={setProjects}/>
     </div>
   );
 }   

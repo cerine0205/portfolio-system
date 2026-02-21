@@ -1,10 +1,7 @@
 import ProjectCard from "../project card/ProjectCard";
 import "./Home.css";
-import { projectsData } from "../../data/projectsData";
-import { useState } from "react";
 
-function Home({ activePage, setActivePage }) {
-    const [projects, setProjects] = useState(projectsData);
+function Home({ activePage, setActivePage,projects }) {
 
     return (
         <div className="home">
