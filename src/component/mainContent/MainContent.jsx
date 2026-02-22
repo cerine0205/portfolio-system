@@ -14,9 +14,6 @@ function MainContent({ ActivePage,setActivePage, activeTag, setActiveTag ,tagsDa
     } else if (ActivePage === "Contact") {
       return <Contact/>;
     }       
-    else if (ActivePage === "Admin") {
-      // router
-    }
 
 }
 

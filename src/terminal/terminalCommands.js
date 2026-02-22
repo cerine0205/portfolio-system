@@ -19,6 +19,7 @@ export function runCommand(rawCommand, { email }) {
         { text: "Available commands:", className: "info" },
         { text: "lsProj      - list projects", className: "info" },
         { text: "createProj  - create new project", className: "info" },
+        { text: "editname     - edit project name", className: "info" },
         { text: "delProj     - delete project", className: "info" },
         { text: "lsMsgs      - list messages", className: "info" },
         { text: "exit        - logout", className: "info" },
@@ -88,17 +89,67 @@ export function runCommand(rawCommand, { email }) {
     //
 
     // create project (interactive)
-    createproj: () => ({
-      type: "ACTION",
-      lines: [
-        promptLine,
-        { text: "Enter project name:", className: "info" },
-      ],
-      action: "CREATE_PROJECT",
-    }),
+    createproj: () => {
+      if (!args[0] || !args[1] || !args[2]) {
+        return {
+          type: "LINES",
+          lines: [
+            promptLine,
+            { text: "Usage: createProj <name> <year> <description>", className: "error" },
+          ],
+        };
+      }
+
+      return {
+        type: "ACTION",
+        lines: [
+          promptLine,
+          { text: "Creating project...", className: "info" },
+        ],
+        action: "CREATE_PROJECT",
+        payload: {
+          name: args[0],
+          year: args[1],
+          description: args.slice(2).join(" "),
+        },
+      };
+    },
     //
 
-    //edit project
+  // edit project name
+editname: () => {
+  if (!args[0] || !args[1]) {
+    return {
+      type: "LINES",
+      lines: [
+        promptLine,
+        { text: "Usage: editName <id> <name>", className: "error" },
+      ],
+    };
+  }
+
+  const id = Number(args[0]);
+  if (Number.isNaN(id)) {
+    return {
+      type: "LINES",
+      lines: [
+        promptLine,
+        { text: "id must be a number.", className: "error" },
+      ],
+    };
+  }
+
+  const name = args.slice(1).join(" "); // عشان لو الاسم فيه مسافة
+  return {
+    type: "ACTION",
+    lines: [
+      promptLine,
+      { text: `Updating project ${id} name...`, className: "info" },
+    ],
+    action: "UPDATE_PROJECT",
+    payload: { id,  name  },
+  };
+},
     //
 
     //list messages

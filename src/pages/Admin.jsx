@@ -1,67 +1,117 @@
 import "./Admin.css";
 import { useState, useRef, useEffect } from "react";
 import { runCommand } from "../terminal/terminalCommands";
-import { resolveAction } from "../terminal/terminalActions";
-import { handleCreateInput } from "../terminal/terminalCreateFlow";
+import { getProjects, createProject, deleteProject ,updateProject} from "../api/projectsApi";
 
-function Admin({ email, projects, setProjects }) {
+function Admin({ email, setProjects }) {
   const [command, setCommand] = useState("");
   const [output, setOutput] = useState([]);
-  const [isCreating, setIsCreating] = useState(false);
-  const [draft, setDraft] = useState({});
 
   const terminalEndRef = useRef(null);
 
-  const handleCommand = (e) => {
+  const handleCommand = async (e) => {
     if (e.key !== "Enter") return;
 
     e.preventDefault();
 
-    if (isCreating) {
-      const result = handleCreateInput({
-        value: command,
-        email,
-        draft,
-        projects,
-      });
+    const res = runCommand(command, { email });
 
-      setOutput(prev => [...prev, ...result.lines]);
-      setDraft(result.nextDraft);
+    //  تجاهل لو المستخدم ضغط Enter بدون كتابة
+    if (res.type === "NOOP") {
       setCommand("");
-
-      if (result.done && result.newProject) {
-        setProjects(prev => [...prev, result.newProject]);
-        setIsCreating(false);
-      }
-
       return;
     }
 
-
-    const res = runCommand(command, { email });
-    const resolved = resolveAction( res,
-      {
-        projects,
-        setProjects,
-        setOutput,
-        setCommand,
-        setIsCreating,
-        setDraft
-      });
-
-    if (resolved.type === "CLEAR") {
+    if (res.type === "CLEAR") {
       setOutput([]);
       setCommand("");
       return;
     }
 
-    if (resolved.type === "LINES" ||resolved.type === "ACTION") {
-      setOutput(prev => [...prev, ...resolved.lines]);
+    if (res.type === "LINES") {
+      setOutput((prev) => [...prev, ...res.lines]);
       setCommand("");
       return;
     }
 
+    //  نربط الباك مباشرة
+    if (res.type === "ACTION") {
+      // نعرض سطور الأمر (Fetching.. / Deleting..)
+      setOutput((prev) => [...prev, ...res.lines]);
+      setCommand("");
+
+      try {
+        if (res.action === "LIST_PROJECTS") {
+          const data = await getProjects();
+          setProjects(data);
+          setOutput(prev => [
+            ...prev,
+            ...data.map(p => ({
+              text: `-[${p.id}] ${p.name}`,
+              className: "console-text"
+            }))
+          ]); return;
+        }
+
+        if (res.action === "DELETE_PROJECT") {
+          await deleteProject(res.payload.id);
+
+          const data = await getProjects(); //refresh
+          setProjects(data);
+          setOutput((prev) => [
+            ...prev,
+            { text: "Project deleted successfully", className: "success" }
+          ]);
+
+          return;
+        }
+
+        if (res.action === "CREATE_PROJECT") {
+          await createProject(res.payload);
+          const data = await getProjects(); //refresh
+          setProjects(data);
+          setOutput((prev) => [
+            ...prev,
+            { text: "Project created successfully", className: "success" }
+          ]);
+
+          return;
+        }
+
+
+        if (res.action === "UPDATE_PROJECT") {
+          await updateProject(res.payload.id, {
+            name: res.payload.name,
+            year: res.payload.year,
+            description: res.payload.description,
+          });
+
+          setOutput(prev => [
+            ...prev,
+            { text: "Project updated successfully", className: "success" }
+          ]);
+
+          // (اختياري) لو تبين تحدّثين state في الواجهة:
+          // const data = await getProjects();
+          // setProjects(data);
+
+          return;
+        }
+
+
+      } catch (err) {
+        console.error(err);
+        setOutput((prev) => [
+          ...prev,
+          { text: "API error. Check console.", className: "error" },
+        ]);
+      }
+
+      return;
+    }
   };
+
+
 
 
   useEffect(() => {
