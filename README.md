@@ -1,16 +1,63 @@
-# React + Vite
+# Portfolio System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack portfolio system that combines a terminal-based admin panel and a graphical user interface (GUI) for visitors. Built using React for the frontend and Laravel for the backend, this project demonstrates REST API integration and efficient management of portfolio data.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Admin Panel – A terminal-like interface for managing projects.
+- Frontend Interface – A visually appealing user interface displaying portfolio projects.
+- CRUD Operations – Create, read, update, and delete portfolio projects through the admin panel.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Frontend
+- React
+- Vite
+- JavaScript
+- CSS
+- HTML
 
-## Expanding the ESLint configuration
+Backend
+- Laravel
+- PHP
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Database
+- MySQL
+
+## Project Description
+
+This system provides two main interfaces:
+
+### Admin Panel
+A terminal-style admin dashboard used to manage portfolio data.
+
+It allows the admin to:
+- Create projects
+- Delete projects
+- Update project information
+- List projects
+
+All operations communicate with the backend through a REST API.
+
+### Public Frontend
+
+A modern and responsive interface where visitors can browse portfolio projects and view project information.
+
+## Live Demo
+
+Frontend is available online:
+
+https://cerine0205.github.io/portfolio-system/
+
+## Project Architecture
+
+This project consists of two repositories:
+
+- Frontend (React) – this repository
+- Backend (Laravel API) –  
+https://github.com/cerine0205/portfolio-api
+
+## License
+
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+
