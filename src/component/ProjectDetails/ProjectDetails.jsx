@@ -54,7 +54,7 @@ function ProjectDetails({ project, setActivePage }) {
               Team Size: {project.team_size ?? "N/A"}
             </span>
 
-          
+
           </div>
 
           <div className="project-details-tags">
@@ -94,6 +94,28 @@ function ProjectDetails({ project, setActivePage }) {
           )}
         </div>
       </div>
+
+
+      {
+        project.screenshots?.length > 0 && (
+          <div className="project-screenshots">
+
+            <h3 className="screenshots-title">Project Gallery</h3>
+
+            <div className="screenshots-grid">
+              {project.screenshots?.map((shot) => (
+                <img
+                  key={shot.id}
+                  src={shot.image}
+                  alt="project screenshot"
+                  className="screenshot-image"
+                />
+              ))}
+            </div>
+
+          </div>
+        )}
+
     </div>
   );
 }
