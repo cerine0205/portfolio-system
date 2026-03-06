@@ -1,5 +1,5 @@
 .project-card {
-  background: var(--color-card); /* استخدام المتغير للون الخلفية */
+  background: var(--color-card);
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -7,9 +7,28 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  max-width: 350px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير التغيير */
+  width: 350px;
+  min-height: 420px;
   margin: 15px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  flex: 0 0 200px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .project-card:hover {
@@ -17,17 +36,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-.project-image {
-  width: 100%; /* لتغطية كامل العرض */
-  height: 200px; /* تحديد الارتفاع الثابت */
-  background-color: var(--color-surface); /* لون الخلفية عند عدم وجود صورة */
-  background-image: url('/assets/background.png'); /* تحديد مسار الصورة */
-  background-size: cover; /* لتغطية المساحة بالكامل */
-  background-position: center; /* لضمان التناسب الجيد للصورة */
-  border-radius: 10px; 
-  object-fit: cover;
-  
-}
+
 
 .project-title {
   font-size: 18px;
