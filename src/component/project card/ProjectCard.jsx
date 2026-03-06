@@ -1,8 +1,8 @@
 import "./ProjectCard.css";
 
-function ProjectCard({ projectImage, projectName, Featured, projectDate, projectDesciption, projectTags }) {
+function ProjectCard({ projectImage, projectName, Featured, projectDate, projectDesciption, projectTags ,onClick}) {
   return (
-    <div className="project-card">
+    <div className="project-card" onClick={onClick}>
       <div className="project-image-wrapper">
         <img
           src={projectImage || "public/assets/background.png"}

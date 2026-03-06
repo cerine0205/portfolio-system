@@ -3,6 +3,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Admin from "./pages/Admin";
 import { useState, useEffect } from "react";
 import { getProjects } from "./api/projectsApi";
+import ProjectDetails from "./component/ProjectDetails/ProjectDetails";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<PortfolioLayout projects={projects} setProjects={setProjects} tagsData={tagsData} />} />
           <Route path="/Admin" element={<Admin email="admin@example.com" setProjects={setProjects} />} />
+          <Route path="project/:id" element={<ProjectDetails projects={projects} />} />
           <Route element={<PortfolioLayout projects={projects} setProjects={setProjects} tagsData={tagsData} />} path={"*"}></Route>
         </Routes>
 

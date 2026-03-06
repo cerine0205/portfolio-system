@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 function PortfolioLayout({projects,setProjects,tagsData}) {
   const [ActivePage, setActivePage] = useState("Home");
   const [activeTag, setActiveTag] = useState("ALL");
+  const [selectedProject, setSelectedProject] = useState(null);
   const navigate = useNavigate();
 
   const handelAdmin= ()=>{
@@ -16,7 +17,10 @@ function PortfolioLayout({projects,setProjects,tagsData}) {
   return (
     <div >   
       <Header ActivePage={ActivePage} setActivePage={setActivePage} handelAdmin={handelAdmin} />
-      <MainContent ActivePage={ActivePage} setActivePage={setActivePage} activeTag={activeTag} setActiveTag={setActiveTag} tagsData={tagsData} projects={projects} setProjects={setProjects}/>
+      <MainContent ActivePage={ActivePage} setActivePage={setActivePage} 
+      activeTag={activeTag} setActiveTag={setActiveTag} 
+      tagsData={tagsData} projects={projects} setProjects={setProjects} 
+      selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>
     </div>
   );
 }   
