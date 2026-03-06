@@ -28,7 +28,7 @@ function About({ setActivePage,tagsData }) {
         <p className="skills-title">STACK & EXPERTISE</p>
 
         <ul className="skills-list">
-          {tagsData.map((skill) => (
+          {tagsData.filter((skill) => skill !== "ALL").map((skill) => (
             <li key={skill} className="skill-item">
               {skill}
             </li>

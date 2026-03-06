@@ -39,7 +39,7 @@ function Home({ activePage, setActivePage,projects }) {
                             projectDate={project.year}
                             projectName={project.name}
                             projectDesciption={project.description}
-                            projectTags={project.tags} />
+                            projectTags={(project.tags || []).map((tag) => tag.name)} />
                     ))}
                 </div>
             </div>

@@ -1,16 +1,22 @@
 import ProjectCard from "../project card/ProjectCard";
 import "./Projects.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Projects({ activeTag, setActiveTag ,tagsData,projects}) {
+function Projects({ activeTag, setActiveTag, tagsData, projects }) {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    setFilteredProjects(projects);
+  }, [projects]);
 
   const filterProjectsByTag = (tag, searchValue = searchTerm) => {
     const query = searchValue.trim().toLowerCase();
 
     const filtered = projects.filter((project) => {
-      const matchesTag = tag === "ALL" || project.tags.includes(tag);
+      const matchesTag =
+        tag === "ALL" ||
+        (project.tags || []).some((projectTag) => projectTag.name === tag);
 
       const matchesSearch =
         query === "" ||
@@ -31,8 +37,7 @@ function Projects({ activeTag, setActiveTag ,tagsData,projects}) {
 
         <div className="search-container">
           <input type="text"
-            placeholder="
-            search projects..."
+            placeholder="search projects..."
             value={searchTerm}
             onChange={(e) => {
               const value = e.target.value;
@@ -73,7 +78,7 @@ function Projects({ activeTag, setActiveTag ,tagsData,projects}) {
             projectDate={project.year}
             projectName={project.name}
             projectDesciption={project.description}
-            projectTags={project.tags} />
+            projectTags={(project.tags || []).map((tag) => tag.name)} />
         ))}
       </div>
     </div>
