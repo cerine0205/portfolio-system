@@ -3,7 +3,6 @@
   grid-template-columns: 1.2fr 0.8fr;
   gap: 10px;
   align-items: start;
-
   width: min(1100px, 92%);
   margin: 80px auto;
 }
@@ -37,23 +36,25 @@
   margin-top: 10px;
   padding: 10px 16px;
   border-radius: 8px;
-
   border: 1px solid var(--color-accent);
   background: transparent;
   color: var(--color-text-primary);
-
   font-size: 12px;
   letter-spacing: 0.1em;
   cursor: pointer;
-
   transition: all 0.2s ease;
 }
 
 .btn-contact:hover {
-  background: rgba(123, 58, 236, 0.12);
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
 }
 
 /* ===== Right ===== */
+
+.about-right {
+  margin-top: 80px;
+}
 
 .skills-title {
   font-size: 11px;
@@ -74,33 +75,20 @@
 .skill-item {
   padding: 8px 12px;
   border-radius: 6px;
-
   border: 1px solid var(--color-border);
   background: transparent;
-
   font-size: 12px;
   color: var(--color-text-secondary);
-
   transition: all 0.15s ease;
 }
 
 .skill-item:hover {
-  border-color: rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.04);
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--color-text-primary);
 }
 
-/* ===== Responsive ===== */
-
-@media (max-width: 900px) {
-  .about {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-.about-right {
-  margin-top: 110px;
-}
+/* ===== Certificates ===== */
 
 .cert-title {
   font-size: 11px;
@@ -110,28 +98,44 @@
   margin-bottom: 12px;
 }
 
-.cert-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 12px 0;
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
 }
 
-.cert-list li {
-  margin-bottom: 6px;
+.cert-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  box-shadow: var(--shadow-card);
 }
 
-.cert-list a {
-  text-decoration: none;
-  font-size: 13px;
+.cert-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+.cert-card h3 {
+  font-size: 14px;
+  margin: 0 0 6px;
+  color: var(--color-text-primary);
+}
+
+.cert-card p {
+  font-size: 12px;
   color: var(--color-text-secondary);
-  transition: color 0.2s ease;
-}
-
-.cert-list a:hover {
-  color: var(--color-accent);
+  margin: 0;
 }
 
 .cert-view-all {
+  display: inline-block;
+  margin-top: 14px;
   font-size: 12px;
   text-decoration: none;
   color: var(--color-accent);
@@ -140,4 +144,16 @@
 
 .cert-view-all:hover {
   opacity: 0.8;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about-right {
+    margin-top: 40px;
+  }
 }

@@ -1,6 +1,7 @@
 import "./About.css";
 
-function About({ setActivePage, tagsData, certificates }) {
+function About({ setActivePage, tagsData, certificates ,setSelectedCertificate}) {
+
   return (
     <div className="about">
 
@@ -36,23 +37,26 @@ function About({ setActivePage, tagsData, certificates }) {
 
         <p className="cert-title">CERTIFICATIONS</p>
 
-        <ul className="cert-list">
-          {certificates?.slice(0, 3).map((cert) => (
-            <li key={cert.id} className="cert-item">
-              <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-link">
-                {cert.title}  </a>
-            </li>
-          ))}
-        </ul>
+        <div className="cert-grid">
 
-        <a
-          href="https://drive.google.com/drive/folders/13yZgeX854Fzng1N_3XBnpAfsHgU7VjFu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cert-view-all"
-        >
-          View All Certifications →
-        </a>
+          {certificates.slice(0, 3).map((cert) => (
+            <div
+              key={cert.id}
+              className="cert-card"
+              onClick={() => {
+                setSelectedCertificate(cert);
+                setActivePage("CertificateDetails");
+              }}
+            >
+
+              <h3>{cert.title}</h3>
+              <p>{cert.issuer}</p>
+
+            </div>
+          ))}
+
+        </div>
+
 
 
       </div>

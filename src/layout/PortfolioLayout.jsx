@@ -8,6 +8,8 @@ function PortfolioLayout({projects,setProjects,tagsData,certificates,setCertific
   const [ActivePage, setActivePage] = useState("Home");
   const [activeTag, setActiveTag] = useState("ALL");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+
   const navigate = useNavigate();
 
   const handelAdmin= ()=>{
@@ -23,7 +25,8 @@ function PortfolioLayout({projects,setProjects,tagsData,certificates,setCertific
       activeTag={activeTag} setActiveTag={setActiveTag} 
       tagsData={tagsData} projects={projects} setProjects={setProjects} 
       selectedProject={selectedProject} setSelectedProject={setSelectedProject}
-      certificates={certificates} setCertificates={setCertificates}/>
+      certificates={certificates} setCertificates={setCertificates}
+      selectedCertificate={selectedCertificate} setSelectedCertificate={setSelectedCertificate}/>
     
     
     <Footer/>
