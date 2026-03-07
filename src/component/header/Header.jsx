@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Header.css";
 
-function Header({ ActivePage, setActivePage,handelAdmin }) {
+function Header({ ActivePage, setActivePage, handelAdmin, setContactProject }) {
   const nav_item = [
     { id: 1, label: "Home" },
     { id: 2, label: "Projects" },
@@ -23,8 +23,8 @@ function Header({ ActivePage, setActivePage,handelAdmin }) {
         <div className="left-side">
           <div className="theme-container">
             <button onClick={toggleTheme} className="theme-btn">
-              {dark ? (<img src="https://cerine0205.github.io/portfolio-system/assets/sun.png" alt="Light Mode" className="theme-icon" />) 
-              : (<img src="https://cerine0205.github.io/portfolio-system/assets/moon.png" alt="Dark Mode" className="theme-icon" />)}
+              {dark ? (<img src="https://cerine0205.github.io/portfolio-system/assets/sun.png" alt="Light Mode" className="theme-icon" />)
+                : (<img src="https://cerine0205.github.io/portfolio-system/assets/moon.png" alt="Dark Mode" className="theme-icon" />)}
             </button>
           </div>
 
@@ -46,7 +46,10 @@ function Header({ ActivePage, setActivePage,handelAdmin }) {
                       ? "nav-item-active"
                       : "nav-item"
                   }
-                  onClick={() => setActivePage(item.label)}
+                  onClick={() => {
+                    if (item.label === "Contact") { setContactProject(null) }
+                    setActivePage(item.label)
+                  }}
                 >
                   {item.label}
                 </li>
@@ -55,7 +58,7 @@ function Header({ ActivePage, setActivePage,handelAdmin }) {
           </nav>
 
           <button className="admin-btn"
-          onClick={handelAdmin}>Admin →</button>
+            onClick={handelAdmin}>Admin →</button>
         </div>
 
       </div>

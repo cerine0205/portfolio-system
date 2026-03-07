@@ -1,6 +1,6 @@
 import "./ProjectDetails.css";
 
-function ProjectDetails({ project, setActivePage }) {
+function ProjectDetails({ project, setActivePage, setContactProject }) {
   if (!project) {
     return (
       <div className="project-details">
@@ -113,8 +113,24 @@ function ProjectDetails({ project, setActivePage }) {
               ))}
             </div>
 
+
+         
+
           </div>
         )}
+
+
+           <div className="project-details-actions">
+              <button
+                className="contact-project-btn"
+                onClick={() => {
+                  setContactProject(project);
+                  setActivePage("Contact");
+                }}
+              >
+                Contact about this project →
+              </button>
+            </div>
 
     </div>
   );

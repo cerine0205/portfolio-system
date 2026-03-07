@@ -162,7 +162,6 @@
   font-size: 14px;
 }
 
-/* empty text */
 
 .project-empty-text {
   color: var(--color-text-muted);
@@ -199,6 +198,42 @@
 .screenshot-image:hover{
   transform:scale(1.03);
   box-shadow:var(--shadow-card);
+}
+
+.project-details-actions {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-project-btn {
+  width: clamp(350px, 40%, 1000px); /* يكبر مع الصفحة */
+
+  height: 52px;
+  padding: 0 28px;
+
+  border-radius: 14px;
+  border: none;
+
+  background: var(--color-accent);
+  color: white;
+
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.25s ease;
+}
+
+.contact-project-btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
 }
 
 /* responsive */

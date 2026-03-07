@@ -5,10 +5,21 @@ import Contact from "../contact/Contact";
 import ProjectDetails from "../ProjectDetails/ProjectDetails";
 import CertificateDetails from "../CertificateDetails/CertificateDetails";
 
-function MainContent({ ActivePage, setActivePage,
-  activeTag, setActiveTag, tagsData, projects,
-  setProjects, selectedProject, setSelectedProject,
-  certificates, setCertificates, selectedCertificate, setSelectedCertificate }) {
+function MainContent({ ActivePage,
+  setActivePage,
+  activeTag,
+  setActiveTag,
+  tagsData,
+  projects,
+  setProjects,
+  selectedProject,
+  setSelectedProject,
+  certificates,
+  setCertificates,
+  selectedCertificate,
+  setSelectedCertificate,
+  contactProject,
+  setContactProject }) {
 
   if (ActivePage === "Home") {
     return <Home
@@ -35,19 +46,21 @@ function MainContent({ ActivePage, setActivePage,
   }
 
   else if (ActivePage === "Contact") {
-    return <Contact />;
+    return <Contact
+    contactProject={contactProject} />;
   }
 
   else if (ActivePage === "ProjectDetails") {
     return <ProjectDetails
       project={selectedProject}
-      setActivePage={setActivePage} />;
+      setActivePage={setActivePage} 
+      setContactProject={setContactProject}/>;
   }
 
-  else if(ActivePage === "CertificateDetails"){ 
+  else if (ActivePage === "CertificateDetails") {
     return <CertificateDetails
-     selectedCertificate={selectedCertificate}
-     setActivePage={setActivePage}/>;
+      selectedCertificate={selectedCertificate}
+      setActivePage={setActivePage} />;
   }
 
 }

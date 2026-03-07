@@ -9,6 +9,7 @@ function PortfolioLayout({projects,setProjects,tagsData,certificates,setCertific
   const [activeTag, setActiveTag] = useState("ALL");
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [contactProject, setContactProject] = useState(null);
 
   const navigate = useNavigate();
 
@@ -19,14 +20,28 @@ function PortfolioLayout({projects,setProjects,tagsData,certificates,setCertific
 
   return (
     <div >   
-      <Header ActivePage={ActivePage} setActivePage={setActivePage} handelAdmin={handelAdmin} />
+      <Header 
+      ActivePage={ActivePage} 
+      setActivePage={setActivePage} 
+      handelAdmin={handelAdmin}
+      setContactProject={setContactProject} />
      
-      <MainContent ActivePage={ActivePage} setActivePage={setActivePage} 
-      activeTag={activeTag} setActiveTag={setActiveTag} 
-      tagsData={tagsData} projects={projects} setProjects={setProjects} 
-      selectedProject={selectedProject} setSelectedProject={setSelectedProject}
-      certificates={certificates} setCertificates={setCertificates}
-      selectedCertificate={selectedCertificate} setSelectedCertificate={setSelectedCertificate}/>
+      <MainContent 
+      ActivePage={ActivePage} 
+      setActivePage={setActivePage} 
+      activeTag={activeTag} 
+      setActiveTag={setActiveTag} 
+      tagsData={tagsData} 
+      projects={projects} 
+      setProjects={setProjects} 
+      selectedProject={selectedProject} 
+      setSelectedProject={setSelectedProject}
+      certificates={certificates} 
+      setCertificates={setCertificates}
+      selectedCertificate={selectedCertificate} 
+      setSelectedCertificate={setSelectedCertificate}
+      contactProject={contactProject}
+      setContactProject={setContactProject}/>
     
     
     <Footer/>

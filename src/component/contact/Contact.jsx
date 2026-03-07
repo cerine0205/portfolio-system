@@ -2,7 +2,7 @@ import "./Contact.css";
 import { useState } from "react";
 import { createMessage } from "../../api/messagesApi";
 
-function Contact() {
+function Contact({ contactProject }) {
 
   const [formData, setFormData] = useState({
     name: "",
@@ -25,8 +25,13 @@ function Contact() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    const payload = {
+      ...formData,
+      project_id: contactProject?.id || null
+    };
+
     try {
-      await createMessage(formData);
+      await createMessage(payload);
 
       setStatus("Message sent successfully!");
 
@@ -44,6 +49,12 @@ function Contact() {
 
   return (
     <div className="contact">
+
+      {contactProject && (
+        <p className="contact-project-note">
+          Contacting about: <strong>{contactProject.name}</strong>
+        </p>
+      )}
 
       <div className="contact-header">
         <p className="contact-kicker">Contact</p>
