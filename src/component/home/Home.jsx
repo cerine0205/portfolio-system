@@ -1,7 +1,10 @@
 import ProjectCard from "../project card/ProjectCard";
 import "./Home.css";
 
-function Home({ activePage, setActivePage,projects }) {
+function Home({ activePage,
+    setActivePage,
+    projects,
+    setContactProject }) {
 
     return (
         <div className="home">
@@ -17,10 +20,17 @@ function Home({ activePage, setActivePage,projects }) {
 
             <div className="home-buttons">
                 <button className="btn view-projects" onClick={() => setActivePage("Projects")}>View Projects</button>
-                <button className="btn contact-me" onClick={() => setActivePage("About")}>Contact Me</button>
+                <button
+                    className="btn contact-me"
+                    onClick={() => {
+                        setContactProject(null);
+                        setActivePage("Contact");
+                    }}
+                >
+                    Contact Me
+                </button>
+
             </div>
-
-
 
             <div className="Featured-section">
 

@@ -25,7 +25,8 @@ function MainContent({ ActivePage,
     return <Home
       activePage={ActivePage}
       setActivePage={setActivePage}
-      projects={projects} />;
+      projects={projects} 
+      setContactProject={setContactProject}/>;
   }
 
   else if (ActivePage === "Projects") {
