@@ -12,6 +12,7 @@
   margin: 15px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
+  cursor: pointer;
 }
 
 .project-image-wrapper {
@@ -98,3 +99,4 @@
   justify-content: space-between;
   align-items: center;
 }
+

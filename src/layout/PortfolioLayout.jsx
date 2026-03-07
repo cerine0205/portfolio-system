@@ -10,6 +10,7 @@ function PortfolioLayout({projects,setProjects,tagsData,certificates,setCertific
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const [contactProject, setContactProject] = useState(null);
+  const [projectBackPage, setProjectBackPage] = useState("Projects");
 
   const navigate = useNavigate();
 
@@ -41,7 +42,9 @@ function PortfolioLayout({projects,setProjects,tagsData,certificates,setCertific
       selectedCertificate={selectedCertificate} 
       setSelectedCertificate={setSelectedCertificate}
       contactProject={contactProject}
-      setContactProject={setContactProject}/>
+      setContactProject={setContactProject}
+      projectBackPage={projectBackPage}
+      setProjectBackPage={setProjectBackPage}/>
     
     
     <Footer/>

@@ -19,14 +19,18 @@ function MainContent({ ActivePage,
   selectedCertificate,
   setSelectedCertificate,
   contactProject,
-  setContactProject }) {
+  setContactProject,
+  projectBackPage,
+  setProjectBackPage }) {
 
   if (ActivePage === "Home") {
     return <Home
       activePage={ActivePage}
       setActivePage={setActivePage}
       projects={projects} 
-      setContactProject={setContactProject}/>;
+      setContactProject={setContactProject}
+      setSelectedProject={setSelectedProject}
+      setProjectBackPage={setProjectBackPage}/>;
   }
 
   else if (ActivePage === "Projects") {
@@ -36,7 +40,8 @@ function MainContent({ ActivePage,
       tagsData={tagsData}
       projects={projects}
       setSelectedProject={setSelectedProject}
-      setActivePage={setActivePage} />;
+      setActivePage={setActivePage}
+      setProjectBackPage={setProjectBackPage} />;
 
   } else if (ActivePage === "About") {
     return <About
@@ -55,7 +60,8 @@ function MainContent({ ActivePage,
     return <ProjectDetails
       project={selectedProject}
       setActivePage={setActivePage} 
-      setContactProject={setContactProject}/>;
+      setContactProject={setContactProject}
+      projectBackPage={projectBackPage}/>;
   }
 
   else if (ActivePage === "CertificateDetails") {

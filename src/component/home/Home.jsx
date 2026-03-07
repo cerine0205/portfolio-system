@@ -4,7 +4,9 @@ import "./Home.css";
 function Home({ activePage,
     setActivePage,
     projects,
-    setContactProject }) {
+    setContactProject,
+    setSelectedProject,
+    setProjectBackPage }) {
 
     return (
         <div className="home">
@@ -49,7 +51,13 @@ function Home({ activePage,
                             projectDate={project.year}
                             projectName={project.name}
                             projectDesciption={project.description}
-                            projectTags={(project.tags || []).map((tag) => tag.name)} />
+                            projectTags={(project.tags || []).map((tag) => tag.name)}
+                            onClick={() => {
+                                setSelectedProject(project);
+                                setProjectBackPage("Home");
+                                setActivePage("ProjectDetails");
+                            }} />
+
                     ))}
                 </div>
             </div>

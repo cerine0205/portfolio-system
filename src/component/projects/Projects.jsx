@@ -2,7 +2,14 @@ import ProjectCard from "../project card/ProjectCard";
 import "./Projects.css";
 import { useEffect, useState } from "react";
 
-function Projects({ activeTag, setActiveTag, tagsData, projects, setSelectedProject,setActivePage }) {
+function Projects({ activeTag,
+  setActiveTag,
+  tagsData,
+  projects,
+  setSelectedProject,
+  setActivePage,
+  setProjectBackPage }) {
+
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -78,11 +85,12 @@ function Projects({ activeTag, setActiveTag, tagsData, projects, setSelectedProj
             projectDate={project.year}
             projectName={project.name}
             projectDesciption={project.description}
-            projectTags={(project.tags || []).map((tag) => tag.name)} 
-            onClick={() =>{
+            projectTags={(project.tags || []).map((tag) => tag.name)}
+            onClick={() => {
               setSelectedProject(project);
+              setProjectBackPage("Projects");
               setActivePage("ProjectDetails");
-            }}/>
+            }} />
         ))}
       </div>
     </div>
