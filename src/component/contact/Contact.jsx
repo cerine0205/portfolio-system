@@ -1,11 +1,53 @@
 import "./Contact.css";
+import { useState } from "react";
+import { createMessage } from "../../api/messagesApi";
 
 function Contact() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    content: ""
+  });
+
+  const [status, setStatus] = useState("");
+
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+
+    setStatus("");
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      await createMessage(formData);
+
+      setStatus("Message sent successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        content: ""
+      });
+
+    } catch (error) {
+      setStatus("Failed to send message.");
+    }
+  }
+
   return (
     <div className="contact">
-      <div className="contact-header">
 
+      <div className="contact-header">
         <p className="contact-kicker">Contact</p>
+
         <h1 className="contact-title">let's talk.</h1>
 
         <p className="contact-subtext">
@@ -15,13 +57,52 @@ function Contact() {
 
 
       <div className="contact-form">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input type="text" placeholder="Name" name="name" required />
-          <input type="email" placeholder="Email" name="email" required />
-          <input type="text" placeholder="Subject" name="subject" required />
-          <textarea placeholder="Message" name="message" required></textarea>
-          <button type="submit">Send Message →</button>
+
+        <form onSubmit={handleSubmit}>
+
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="text"
+            placeholder="Subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            required
+          />
+
+          <textarea
+            placeholder="Message"
+            name="content"
+            value={formData.content}
+            onChange={handleChange}
+            required
+          ></textarea>
+
+          <button type="submit">
+            Send Message →
+          </button>
+
         </form>
+
+        {status && <p className="contact-status">{status}</p>}
+
       </div>
 
     </div>

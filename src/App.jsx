@@ -3,8 +3,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Admin from "./pages/Admin";
 import { useState, useEffect } from "react";
 import { getProjects } from "./api/projectsApi";
-import { getCertificates } from "./api/certificateApi";
-import ProjectDetails from "./component/ProjectDetails/ProjectDetails";
+import { getCertificates } from "./api/certificatesApi";import ProjectDetails from "./component/ProjectDetails/ProjectDetails";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -31,10 +30,33 @@ function App() {
     <div className="App">
       <HashRouter >
         <Routes>
-          <Route path="/" element={<PortfolioLayout projects={projects} setProjects={setProjects} tagsData={tagsData}  certificates={certificates} setCertificates={setCertificates}/>} />
-          <Route path="/Admin" element={<Admin email="admin@example.com" setProjects={setProjects} />} />
-          <Route path="project/:id" element={<ProjectDetails projects={projects} />} />
-          <Route element={<PortfolioLayout projects={projects} setProjects={setProjects} tagsData={tagsData} certificates={certificates} setCertificates={setCertificates} />} path={"*"}></Route>
+
+          <Route path="/" 
+          element={<PortfolioLayout 
+          projects={projects} 
+          setProjects={setProjects} 
+          tagsData={tagsData}  
+          certificates={certificates} 
+          setCertificates={setCertificates}/>} />
+
+          <Route path="/Admin" 
+          element={<Admin 
+          email="admin@example.com" 
+          setProjects={setProjects} />} />
+
+          <Route path="project/:id" 
+          element={<ProjectDetails 
+          projects={projects} />} />
+
+          <Route 
+          path={"*"}
+          element={<PortfolioLayout 
+          projects={projects} 
+          setProjects={setProjects} 
+          tagsData={tagsData} 
+          certificates={certificates} 
+          setCertificates={setCertificates} />} 
+         ></Route>
         </Routes>
 
       </HashRouter>
