@@ -1,7 +1,6 @@
 import "./About.css";
-import { certificatesData } from "../../data/certifcatesData";
 
-function About({ setActivePage,tagsData }) {
+function About({ setActivePage, tagsData, certificates }) {
   return (
     <div className="about">
 
@@ -38,7 +37,7 @@ function About({ setActivePage,tagsData }) {
         <p className="cert-title">CERTIFICATIONS</p>
 
         <ul className="cert-list">
-          {certificatesData.slice(0, 3).map((cert) => (
+          {certificates?.slice(0, 3).map((cert) => (
             <li key={cert.id} className="cert-item">
               <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-link">
                 {cert.title}  </a>
