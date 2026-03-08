@@ -5,11 +5,11 @@ import {
   createCertificate,
   updateCertificate,
   deleteCertificate,
-} from "../../../api/certificatesApi";
+} from "../../api/certificatesApi";
 
-import CertForm from "../certForm/CertForm";
-import CertStats from "../CertStats/CertStats";
-import CertGrid from "../CertGrid/CertGrid";
+import CertForm from "./certForm/CertForm";
+import CertStats from "./CertStats/CertStats";
+import CertGrid from "./CertGrid/CertGrid";
 
 function AdminCertificates() {
   const [certificates, setCertificates] = useState([]);

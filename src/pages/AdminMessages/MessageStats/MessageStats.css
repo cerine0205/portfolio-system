@@ -1,0 +1,18 @@
+.message-stat-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.message-stat-card h3 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--color-text-primary);
+}
+
+.message-stat-card p {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
