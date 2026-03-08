@@ -125,3 +125,41 @@
   display: block; /* يجعل كل سطر في سطر جديد */
   margin-bottom: 6px; /* زيادة المسافة بين كل سطر */
 }
+
+
+
+
+/* ============================
+   Admin shared Styles
+   ============================ */
+.admin-page {
+  width: min(1100px, 92%);
+  margin: 24px auto 0;
+  padding-bottom: 120px;
+  font-family: inherit;
+}
+
+.admin-page .admin-title {
+  font-size: 36px;
+  margin-bottom: 6px;
+  color: var(--color-text-primary);
+}
+
+.admin-page .admin-subtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+}
+
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+}

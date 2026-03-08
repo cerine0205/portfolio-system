@@ -49,22 +49,24 @@ function AdminMessages() {
   const withProject = messages.filter((m) => m.project).length;
 
   return (
-    <div className="admin-messages">
-      <h1 className="admin-title">Inbox</h1>
-      <p className="admin-subtitle">
-        {total} messages · {unread} unread
-      </p>
+    <div className="admin-page admin-messages">
+      <div>
+        <p className="admin-certificates-kicker">admin / messages</p>
+        <h1 className="admin-title">Inbox</h1>
+        <p className="admin-subtitle">
+          {total} messages · {unread} unread
+        </p>
+      </div>
 
-      <div className="stats">
+      <div className="admin-stats">
         <MessageStats value={total} label="Total" />
         <MessageStats value={unread} label="Unread" />
         <MessageStats value={withProject} label="With Project" />
       </div>
 
       <div
-        className={`messages-layout ${
-          selectedMessage ? "split" : "single"
-        }`}
+        className={`messages-layout ${selectedMessage ? "split" : "single"
+          }`}
       >
         <MessageList
           messages={messages}

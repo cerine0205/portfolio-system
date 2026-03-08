@@ -113,7 +113,7 @@ function AdminCertificates() {
       : "N/A";
 
   return (
-    <div className="admin-certificates">
+    <div className="admin-page admin-certificates">
       <div className="admin-certificates-top">
         <div>
           <p className="admin-certificates-kicker">admin / certificates</p>
@@ -128,7 +128,7 @@ function AdminCertificates() {
         </button>
       </div>
 
-      <div className="admin-certificates-stats">
+      <div className="admin-stats">
         <CertStats value={total} label="Total" />
         <CertStats value={issuersCount} label="Issuers" />
         <CertStats value={latestYear} label="Latest Year" />
