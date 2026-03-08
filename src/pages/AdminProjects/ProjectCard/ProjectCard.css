@@ -1,0 +1,107 @@
+.admin-project-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 280px;
+  box-sizing: border-box;
+
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+
+  transition: 0.2s;
+}
+
+.admin-project-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.admin-project-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.admin-project-card-title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--color-text-primary);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.admin-project-card-description {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.admin-project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-project-year,
+.admin-project-status {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.admin-project-featured {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-accent);
+}
+
+.admin-project-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.admin-project-card-actions button {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.admin-edit-project-btn {
+  flex: 1;
+  color: var(--color-accent);
+}
+
+.admin-edit-project-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.admin-delete-project-btn {
+  width: 40px;
+  flex-shrink: 0;
+  color: var(--terminal-red);
+}
+
+.admin-delete-project-btn:hover {
+  border-color: var(--terminal-red);
+  background: rgba(255, 77, 77, 0.08);
+}
