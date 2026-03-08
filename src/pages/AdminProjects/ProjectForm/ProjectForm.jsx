@@ -33,6 +33,7 @@ function ProjectForm({
             placeholder="Description"
             value={formData.description}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -41,6 +42,9 @@ function ProjectForm({
             placeholder="Year"
             value={formData.year}
             onChange={handleChange}
+            required
+            min="2000"
+            max="2100"
           />
 
           <input
