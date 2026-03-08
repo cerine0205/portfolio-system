@@ -1,11 +1,15 @@
 import "./Admin.css";
 import { useState, useRef, useEffect } from "react";
 import { runCommand } from "../terminal/terminalCommands";
-import { getProjects, createProject, deleteProject ,updateProject} from "../api/projectsApi";
+import { getProjects, createProject, deleteProject, updateProject } from "../api/projectsApi";
+import AdminMessages from "./AdminMessages/AdminMessages";
+import AdminProjects from "./AdminProjects/AdminProjects";
+import AdminCertificates from "./AdminCertificates/AdminCertificates";
 
 function Admin({ email, setProjects }) {
   const [command, setCommand] = useState("");
   const [output, setOutput] = useState([]);
+  const [adminView, setAdminView] = useState("terminal");
 
   const terminalEndRef = useRef(null);
 
@@ -15,6 +19,14 @@ function Admin({ email, setProjects }) {
     e.preventDefault();
 
     const res = runCommand(command, { email });
+
+
+    if (res.type === "NAVIGATE") {
+      setAdminView(res.view);
+      setOutput(prev => [...prev, ...res.lines]);
+      setCommand("");
+      return;
+    }
 
     //  تجاهل لو المستخدم ضغط Enter بدون كتابة
     if (res.type === "NOOP") {
@@ -91,10 +103,6 @@ function Admin({ email, setProjects }) {
             { text: "Project updated successfully", className: "success" }
           ]);
 
-          // (اختياري) لو تبين تحدّثين state في الواجهة:
-          // const data = await getProjects();
-          // setProjects(data);
-
           return;
         }
 
@@ -146,6 +154,11 @@ function Admin({ email, setProjects }) {
 
         </div>
       </div>
+
+      {adminView === "messages" && <AdminMessages />}
+      {adminView === "projects" && <AdminProjects />}
+      {adminView === "certificates" && <AdminCertificates />}
+
     </div>
   );
 }

@@ -22,8 +22,50 @@ export function runCommand(rawCommand, { email }) {
         { text: "editname     - edit project name", className: "info" },
         { text: "delProj     - delete project", className: "info" },
         { text: "lsMsgs      - list messages", className: "info" },
+        { text: "msgPanel    - open messages panel", className: "info" },
+        { text: "projPanel   - open projects panel", className: "info" },
+        { text: "certPanel   - open certificates panel", className: "info" },
+        { text: "back        - return to terminal", className: "info" },
         { text: "exit        - logout", className: "info" },
+
       ],
+    }),
+
+
+    msgpanel: () => ({
+      type: "NAVIGATE",
+      lines: [
+        promptLine,
+        { text: "Opening Messages Panel...", className: "info" },
+      ],
+      view: "messages"
+    }),
+
+    projpanel: () => ({
+      type: "NAVIGATE",
+      lines: [
+        promptLine,
+        { text: "Opening Projects Panel...", className: "info" },
+      ],
+      view: "projects"
+    }),
+
+    certpanel: () => ({
+      type: "NAVIGATE",
+      lines: [
+        promptLine,
+        { text: "Opening Certificates Panel...", className: "info" },
+      ],
+      view: "certificates"
+    }),
+
+    back: () => ({
+      type: "NAVIGATE",
+      lines: [
+        promptLine,
+        { text: "Returning to terminal...", className: "info" },
+      ],
+      view: "terminal"
     }),
 
     login: () => ({
@@ -116,40 +158,40 @@ export function runCommand(rawCommand, { email }) {
     },
     //
 
-  // edit project name
-editname: () => {
-  if (!args[0] || !args[1]) {
-    return {
-      type: "LINES",
-      lines: [
-        promptLine,
-        { text: "Usage: editName <id> <name>", className: "error" },
-      ],
-    };
-  }
+    // edit project name
+    editname: () => {
+      if (!args[0] || !args[1]) {
+        return {
+          type: "LINES",
+          lines: [
+            promptLine,
+            { text: "Usage: editName <id> <name>", className: "error" },
+          ],
+        };
+      }
 
-  const id = Number(args[0]);
-  if (Number.isNaN(id)) {
-    return {
-      type: "LINES",
-      lines: [
-        promptLine,
-        { text: "id must be a number.", className: "error" },
-      ],
-    };
-  }
+      const id = Number(args[0]);
+      if (Number.isNaN(id)) {
+        return {
+          type: "LINES",
+          lines: [
+            promptLine,
+            { text: "id must be a number.", className: "error" },
+          ],
+        };
+      }
 
-  const name = args.slice(1).join(" "); // عشان لو الاسم فيه مسافة
-  return {
-    type: "ACTION",
-    lines: [
-      promptLine,
-      { text: `Updating project ${id} name...`, className: "info" },
-    ],
-    action: "UPDATE_PROJECT",
-    payload: { id,  name  },
-  };
-},
+      const name = args.slice(1).join(" "); // عشان لو الاسم فيه مسافة
+      return {
+        type: "ACTION",
+        lines: [
+          promptLine,
+          { text: `Updating project ${id} name...`, className: "info" },
+        ],
+        action: "UPDATE_PROJECT",
+        payload: { id, name },
+      };
+    },
     //
 
     //list messages
