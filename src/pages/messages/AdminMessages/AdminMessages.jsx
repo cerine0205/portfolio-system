@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./AdminMessages.css";
-import { getMessages, deleteMessage, markMessageAsRead } from "../../api/messagesApi";
+import { getMessages, deleteMessage, markMessageAsRead } from "../../../api/messagesApi";
 
 function AdminMessages() {
   const [messages, setMessages] = useState([]);

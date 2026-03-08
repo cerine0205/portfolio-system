@@ -2,9 +2,9 @@ import "./Admin.css";
 import { useState, useRef, useEffect } from "react";
 import { runCommand } from "../terminal/terminalCommands";
 import { getProjects, createProject, deleteProject, updateProject } from "../api/projectsApi";
-import AdminMessages from "./AdminMessages/AdminMessages";
-import AdminProjects from "./AdminProjects/AdminProjects";
-import AdminCertificates from "./AdminCertificates/AdminCertificates";
+import AdminMessages from "./messages/AdminMessages/AdminMessages";
+import AdminProjects from "./ProjectsPanel/AdminProjects/AdminProjects";
+import AdminCertificates from "./certificate/AdminCertificates/AdminCertificates";
 
 function Admin({ email, setProjects }) {
   const [command, setCommand] = useState("");

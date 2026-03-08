@@ -1,0 +1,117 @@
+.certificate-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+
+  border-radius: 16px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-card);
+}
+
+.certificate-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.certificate-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.certificate-card-title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+.certificate-card-issuer {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.certificate-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.certificate-year {
+  padding: 6px 12px;
+
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+
+  background: var(--color-surface);
+
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.certificate-link {
+  font-size: 12px;
+  text-decoration: none;
+
+  color: var(--color-text-muted);
+
+  transition: all 0.2s ease;
+}
+
+.certificate-link:hover {
+  color: var(--color-accent);
+}
+
+.certificate-card-actions {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 16px;
+  padding-top: 14px;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.certificate-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.certificate-card-actions button {
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-certificate-btn {
+  flex: 1;
+  color: var(--color-accent);
+}
+
+.edit-certificate-btn:hover {
+  border-color: var(--color-accent);
+}
+
+.delete-certificate-btn {
+  width: 38px;
+  color: var(--terminal-red);
+}
+
+.delete-certificate-btn:hover {
+  border-color: var(--terminal-red);
+}

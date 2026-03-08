@@ -1,0 +1,27 @@
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  padding: 18px;
+}
+
+.empty-certificates {
+  padding: 26px;
+  text-align: center;
+
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1000px) {
+  .certificates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}
