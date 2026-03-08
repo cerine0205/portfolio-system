@@ -120,8 +120,6 @@ function Admin({ email, setProjects }) {
   };
 
 
-
-
   useEffect(() => {
     terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [output]); // تحريك الترمنال عند تغيير output

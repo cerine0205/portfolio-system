@@ -1,0 +1,131 @@
+
+.admin-project-form-card {
+  width: min(600px, 95%);
+  padding: 28px;
+  border-radius: 16px;
+
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+
+  box-shadow: var(--shadow-card);
+}
+
+.admin-project-form-kicker {
+  margin: 0 0 16px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  text-align: center;
+}
+
+.admin-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-project-form input,
+.admin-project-form textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+
+  background: transparent;
+  color: var(--color-text-primary);
+}
+
+.admin-project-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.admin-project-form input:hover,
+.admin-project-form textarea:hover,
+.admin-project-form input:focus,
+.admin-project-form textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  cursor: pointer;
+}
+
+
+
+.admin-project-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-project-checkbox:hover {
+  border-color: var(--color-accent);
+}
+
+.admin-project-checkbox input {
+  accent-color: var(--color-accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.admin-project-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.admin-project-form-actions button {
+  flex: 1;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-project-form-actions button[type="submit"] {
+  color: var(--color-accent);
+}
+
+.admin-project-form-actions button[type="submit"]:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.admin-cancel-btn {
+  color: var(--terminal-red) !important;
+}
+
+.admin-cancel-btn:hover {
+  border-color: var(--terminal-red) !important;
+  background: rgba(255, 77, 77, 0.08) !important;
+}
+
+.admin-project-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.admin-project-form-section + .admin-project-form-section {
+  margin-top: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+}
+
+.admin-project-form-section-title {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
