@@ -1,18 +1,21 @@
 import "./ProjectDetails.css";
 
-function ProjectDetails({ project,
+function ProjectDetails({
+  project,
   setActivePage,
   setContactProject,
-  projectBackPage }) {
-
+  projectBackPage,
+}) {
   if (!project) {
     return (
       <div className="project-details">
-        <button className="back-btn" onClick={() => setActivePage(projectBackPage)}>
+        <button
+          className="back-btn"
+          onClick={() => setActivePage(projectBackPage)}
+        >
           ← Back to {projectBackPage}
         </button>
 
-        
         <div className="project-panel">
           <h2 className="section-title">Project not found</h2>
           <p className="project-empty-text">
@@ -21,15 +24,16 @@ function ProjectDetails({ project,
         </div>
       </div>
     );
-
   }
 
   return (
     <div className="project-details">
-      <button className="back-btn" onClick={() => setActivePage(projectBackPage)}>
+      <button
+        className="back-btn"
+        onClick={() => setActivePage(projectBackPage)}
+      >
         ← Back to {projectBackPage}
       </button>
-
 
       <section className="project-hero">
         <div className="project-hero-media">
@@ -54,8 +58,12 @@ function ProjectDetails({ project,
 
           <div className="project-badges">
             <span className="project-badge">Year: {project.year}</span>
-            <span className="project-badge">Status: {project.status || "Unknown"}</span>
-            <span className="project-badge">Team Size: {project.team_size ?? "N/A"}</span>
+            <span className="project-badge">
+              Status: {project.status || "Unknown"}
+            </span>
+            <span className="project-badge">
+              Team Size: {project.team_size ?? "N/A"}
+            </span>
 
             {project.role && (
               <span className="project-badge">Role: {project.role}</span>
@@ -100,6 +108,28 @@ function ProjectDetails({ project,
                 className="project-link secondary"
               >
                 GitHub
+              </a>
+            )}
+
+            {project.demo_url && (
+              <a
+                href={project.demo_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link secondary"
+              >
+                Demo Video
+              </a>
+            )}
+
+            {project.presentation_url && (
+              <a
+                href={project.presentation_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link secondary"
+              >
+                Presentation
               </a>
             )}
 
@@ -148,6 +178,18 @@ function ProjectDetails({ project,
           )}
         </div>
 
+        {project.features?.length > 0 && (
+          <div className="project-panel full-width">
+            <h2 className="section-title">Features</h2>
+
+            <ul className="project-features">
+              {project.features.map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {project.challenges && (
           <div className="project-panel">
             <h2 className="section-title">Challenges</h2>
@@ -159,6 +201,31 @@ function ProjectDetails({ project,
           <div className="project-panel">
             <h2 className="section-title">Results</h2>
             <p className="section-text">{project.results}</p>
+          </div>
+        )}
+
+        {(project.architecture || project.architecture_image) && (
+          <div className="project-panel full-width">
+            <h2 className="section-title">System Architecture</h2>
+
+            {project.architecture_image && (
+              <img
+                src={project.architecture_image}
+                alt="System architecture diagram"
+                className="project-architecture-image"
+              />
+            )}
+
+            {project.architecture && (
+              <p className="section-text">{project.architecture}</p>
+            )}
+          </div>
+        )}
+
+        {project.refactor_notes && (
+          <div className="project-panel full-width">
+            <h2 className="section-title">Refactoring Notes</h2>
+            <p className="section-text">{project.refactor_notes}</p>
           </div>
         )}
       </section>
@@ -196,8 +263,6 @@ function ProjectDetails({ project,
         </button>
       </div>
     </div>
-
-
   );
 }
 
