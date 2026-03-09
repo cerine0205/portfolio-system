@@ -10,11 +10,14 @@ import {
 import CertForm from "./certForm/CertForm";
 import CertStats from "./CertStats/CertStats";
 import CertGrid from "./CertGrid/CertGrid";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function AdminCertificates() {
   const [certificates, setCertificates] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingCertificate, setEditingCertificate] = useState(null);
+  const [certificateToDelete, setCertificateToDelete] = useState(null);
+
   const [formData, setFormData] = useState({
     title: "",
     issuer: "",
@@ -94,9 +97,16 @@ function AdminCertificates() {
     });
   }
 
-  async function handleDelete(id) {
-    await deleteCertificate(id);
+  function handleDelete(id) {
+    setCertificateToDelete(id);
+  }
+
+  async function confirmDelete() {
+    if (!certificateToDelete) return;
+
+    await deleteCertificate(certificateToDelete);
     await loadCertificates();
+    setCertificateToDelete(null);
   }
 
   const total = certificates.length;
@@ -159,6 +169,20 @@ function AdminCertificates() {
         />
 
       </div>
+
+
+      {certificateToDelete && (
+        <DeleteModal
+          isOpen={certificateToDelete}
+          title="Delete Certificate?"
+          message={`Are you sure you want to delete "${certificates.find((cert) => cert.id === certificateToDelete)?.title || "this certificate"
+            }"?`}
+          onConfirm={confirmDelete}
+          onCancel={() => setCertificateToDelete(null)}
+        />
+      )}
+
+
     </div>
   );
 }

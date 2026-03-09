@@ -12,11 +12,13 @@ import {
 import ProjectStats from "./ProjectStats/ProjectStats";
 import ProjectGrid from "./ProjectGrid/ProjectGrid";
 import ProjectForm from "./ProjectForm/ProjectForm";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function AdminProjects() {
   const [projects, setProjects] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingProject, setEditingProject] = useState(null);
+  const [projectToDelete, setProjectToDelete] = useState(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -165,9 +167,18 @@ function AdminProjects() {
     resetForm();
   }
 
-  async function handleDelete(id) {
-    await deleteProject(id);
+  function handleDelete(id) {
+    setProjectToDelete(id);
+  }
+
+
+  async function confirmDelete() {
+    if (!projectToDelete) return;
+
+    await deleteProject(projectToDelete);
     await loadProjects();
+
+    setProjectToDelete(null);
   }
 
   const total = projects.length;
@@ -211,17 +222,28 @@ function AdminProjects() {
 
 
 
-    <div className="projects-vault">
-  <div className="projects-vault-header">
-    <p className="project-section-kicker">Projects.Vault</p>
-  </div>
+      <div className="projects-vault">
+        <div className="projects-vault-header">
+          <p className="project-section-kicker">Projects.Vault</p>
+        </div>
 
-  <ProjectGrid
-    projects={projects}
-    handleEdit={handleEdit}
-    handleDelete={handleDelete}
-  />
-</div>
+        <ProjectGrid
+          projects={projects}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+        />
+      </div>
+
+      {projectToDelete && (
+        <DeleteModal
+        isOpen={projectToDelete}
+          title="Delete Project?"
+          message={`Are you sure you want to delete "${projects.find(p => p.id === projectToDelete)?.name || "this project"
+            }"?`}
+          onConfirm={confirmDelete}
+          onCancel={() => setProjectToDelete(null)}
+        />
+      )}
 
     </div>
   );

@@ -9,11 +9,13 @@ import {
 import MessageList from "./MessageList/MessageList";
 import MessageDetails from "./MessageDetails/MessageDetails";
 import MessageStats from "./MessageStats/MessageStats";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 
 function AdminMessages() {
   const [messages, setMessages] = useState([]);
   const [selectedMessage, setSelectedMessage] = useState(null);
+  const [messageToDelete, setMessageToDelete] = useState(null);
 
   useEffect(() => {
     loadMessages();
@@ -25,13 +27,21 @@ function AdminMessages() {
     return data;
   }
 
-  async function handleDelete(id) {
-    await deleteMessage(id);
+function handleDelete(id) {
+    setMessageToDelete(id);
+  }
+
+  async function confirmDelete() {
+    if (!messageToDelete) return;
+
+    await deleteMessage(messageToDelete);
     await loadMessages();
 
-    if (selectedMessage?.id === id) {
+    if (selectedMessage?.id === messageToDelete) {
       setSelectedMessage(null);
     }
+
+    setMessageToDelete(null);
   }
 
   async function handleRead(id) {
@@ -81,6 +91,19 @@ function AdminMessages() {
           />
         )}
       </div>
+
+
+
+      {messageToDelete && (
+        <DeleteModal
+          isOpen={messageToDelete}
+          title="Delete Message?"
+          message={`Are you sure you want to delete "${messages.find((msg) => msg.id === messageToDelete)?.subject || "this message"
+            }"?`}
+          onConfirm={confirmDelete}
+          onCancel={() => setMessageToDelete(null)}
+        />
+      )}
     </div>
   );
 }
