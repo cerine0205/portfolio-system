@@ -22,6 +22,9 @@ function MessageDetails({
         {selectedMessage.project?.name || "General"}
       </p>
 
+      <strong>Time:</strong>{" "}
+      {new Date(selectedMessage.created_at).toLocaleString()}
+
       <p className="message-full">
         {selectedMessage.content}
       </p>
