@@ -1,3 +1,6 @@
+
+
+
 .project-details {
   width: min(1180px, 92%);
   margin: 70px auto 100px;
@@ -20,6 +23,7 @@
 .project-details .back-btn:hover {
   border-color: var(--color-accent);
   background: var(--color-accent-soft);
+  transform: translateY(-2px);
 }
 
 .project-details .project-hero {
@@ -28,6 +32,7 @@
   gap: 28px;
   align-items: stretch;
   margin-bottom: 32px;
+
 }
 
 .project-details .project-hero-media,
@@ -42,7 +47,13 @@
 .project-details .project-hero-media {
   border-radius: 22px;
   overflow: hidden;
-  min-height: 420px;
+  min-height: 320px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-details .project-hero-media:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
 }
 
 .project-details .project-hero-image {
@@ -53,11 +64,17 @@
 }
 
 .project-details .project-hero-content {
-  border-radius: 22px;
+  border-radius: 20px;
   padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-details .project-hero-content:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
 }
 
 .project-details .project-kicker,
@@ -70,7 +87,7 @@
 }
 
 .project-details .project-title {
-  font-size: clamp(38px, 5vw, 68px);
+  font-size: clamp(32px, 4vw, 52px);
   line-height: 0.95;
   margin: 0 0 18px;
   color: var(--color-text-primary);
@@ -97,6 +114,13 @@
   background: var(--color-surface);
   color: var(--color-text-secondary);
   font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.project-details .project-badge:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  transform: translateY(-2px);
 }
 
 .project-details .project-tags {
@@ -118,6 +142,7 @@
 
 .project-details .project-tag:hover {
   border-color: var(--color-accent);
+  transform: translateY(-2px);
 }
 
 .project-details .project-links {
@@ -174,6 +199,12 @@
 .project-details .project-panel {
   border-radius: 20px;
   padding: 24px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-details .project-panel:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
 }
 
 .project-details .project-panel.full-width {
@@ -209,6 +240,13 @@
   border: 1px solid var(--color-border);
   color: var(--color-text-primary);
   font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.project-details .project-tech-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
 }
 
 /* FEATURES */
@@ -216,19 +254,31 @@
 .project-details .project-features {
   padding-left: 18px;
   line-height: 1.8;
+  margin: 0;
 }
 
 .project-details .project-features li {
   margin-bottom: 6px;
+  color: var(--color-text-secondary);
 }
 
 /* ARCHITECTURE */
 
 .project-details .project-architecture-image {
   width: 100%;
+  max-height: 360px;
+  object-fit: contain;
   border-radius: 14px;
   margin-bottom: 14px;
   border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 14px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-details .project-architecture-image:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: var(--color-accent);
 }
 
 /* GALLERY */
@@ -256,7 +306,7 @@
 .project-details .gallery-card {
   border-radius: 18px;
   overflow: hidden;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .project-details .gallery-card:hover {
@@ -269,6 +319,11 @@
   height: 240px;
   object-fit: cover;
   display: block;
+  transition: transform 0.25s ease;
+}
+
+.project-details .gallery-card:hover .gallery-image {
+  transform: scale(1.03);
 }
 
 /* CTA */
@@ -312,7 +367,12 @@
   }
 
   .project-details .project-hero-media {
-    min-height: 320px;
+    min-height: 280px;
+    max-height: 320px;
+  }
+
+  .project-details .project-hero-image {
+    height: 280px;
   }
 
   .project-details .project-grid {
@@ -321,6 +381,10 @@
 
   .project-details .project-panel.full-width {
     grid-column: auto;
+  }
+
+  .project-details .project-architecture-image {
+    max-height: 300px;
   }
 }
 
@@ -334,11 +398,25 @@
     padding: 18px;
   }
 
+  .project-details .project-hero-media {
+    min-height: 240px;
+    max-height: 260px;
+  }
+
+  .project-details .project-hero-image {
+    height: 240px;
+  }
+
   .project-details .gallery-image {
     height: 210px;
   }
 
   .project-details .contact-project-btn {
     width: 100%;
+  }
+
+  .project-details .project-architecture-image {
+    max-height: 240px;
+    padding: 10px;
   }
 }

@@ -94,7 +94,7 @@ function ProjectDetails({
                 href={project.live_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="project-link primary"
+                className="project-link secondary"
               >
                 Live Demo
               </a>
