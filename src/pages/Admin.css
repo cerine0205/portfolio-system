@@ -72,23 +72,20 @@
 /* تنسيق النص */
 .terminal-text {
   font-weight: 400;  /* عادي */
-  color: var(--terminal-green);  /* نفس اللون في الصورة */
+  color: var(--terminal-blue);  /* نفس اللون في الصورة */
   margin-bottom: 10px;  /* المسافة أسفل النص */
 }
 
 /* تنسيق النص في الـ "login-instruction" */
 .login-instruction {
   font-weight: 300;  /* وزن الخط أخف */
-  color: var(--terminal-green);  /* نفس اللون */
+  color: var(--terminal-blue);  /* نفس اللون */
 }
-
-
-
 
 
 .terminal-input {
   background: transparent;
-  color: var(--terminal-green);
+  color: var(--terminal-purple);
   border: none;
   outline: none;
   width: 100%;
