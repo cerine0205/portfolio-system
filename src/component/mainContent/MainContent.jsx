@@ -46,7 +46,6 @@ function MainContent({ ActivePage,
   } else if (ActivePage === "About") {
     return <About
       setActivePage={setActivePage}
-      tagsData={tagsData}
       certificates={certificates}
       setSelectedCertificate={setSelectedCertificate} />;
   }

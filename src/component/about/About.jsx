@@ -1,7 +1,14 @@
-
+import { useEffect,useState } from "react";
 import "./About.css";
+import { getSkills } from "../../api/skillsApi";
 
-function About({ setActivePage, tagsData, certificates, setSelectedCertificate }) {
+function About({ setActivePage, certificates, setSelectedCertificate }) {
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    getSkills().then(setSkills).catch(console.error);
+  }, []);
+  
   return (
     <div className="about">
       <div className="about-left">
@@ -43,11 +50,9 @@ function About({ setActivePage, tagsData, certificates, setSelectedCertificate }
           <p className="skills-title">STACK & EXPERTISE</p>
 
           <div className="skills-grid">
-            {tagsData
-              .filter((skill) => skill !== "ALL")
-              .map((skill) => (
-                <span key={skill} className="skill-item">
-                  {skill}
+            {skills.map((skill) => (
+                <span key={skill.id} className="skill-item">
+                  {skill.name}
                 </span>
               ))}
           </div>
