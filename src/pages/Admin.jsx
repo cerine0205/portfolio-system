@@ -1,19 +1,18 @@
 import "./Admin.css";
 import { useState, useRef, useEffect } from "react";
 import { runCommand } from "../terminal/terminalCommands";
-import { getProjects, createProject, deleteProject, updateProject } from "../api/projectsApi";
 import AdminMessages from "./AdminMessages/AdminMessages";
 import AdminProjects from "./AdminProjects/AdminProjects";
 import AdminCertificates from "./AdminCertificates/AdminCertificates";
 
-function Admin({ email, setProjects }) {
+function Admin({ email }) {
   const [command, setCommand] = useState("");
   const [output, setOutput] = useState([]);
   const [adminView, setAdminView] = useState("terminal");
 
   const terminalEndRef = useRef(null);
 
-  const handleCommand = async (e) => {
+  const handleCommand = (e) => {
     if (e.key !== "Enter") return;
 
     e.preventDefault();
@@ -23,7 +22,7 @@ function Admin({ email, setProjects }) {
 
     if (res.type === "NAVIGATE") {
       setAdminView(res.view);
-      setOutput(prev => [...prev, ...res.lines]);
+      setOutput((prev) => [...prev, ...res.lines]);
       setCommand("");
       return;
     }
@@ -45,78 +44,7 @@ function Admin({ email, setProjects }) {
       setCommand("");
       return;
     }
-
-    //  نربط الباك مباشرة
-    if (res.type === "ACTION") {
-      // نعرض سطور الأمر (Fetching.. / Deleting..)
-      setOutput((prev) => [...prev, ...res.lines]);
-      setCommand("");
-
-      try {
-        if (res.action === "LIST_PROJECTS") {
-          const data = await getProjects();
-          setProjects(data);
-          setOutput(prev => [
-            ...prev,
-            ...data.map(p => ({
-              text: `-[${p.id}] ${p.name}`,
-              className: "console-text"
-            }))
-          ]); return;
-        }
-
-        if (res.action === "DELETE_PROJECT") {
-          await deleteProject(res.payload.id);
-
-          const data = await getProjects(); //refresh
-          setProjects(data);
-          setOutput((prev) => [
-            ...prev,
-            { text: "Project deleted successfully", className: "success" }
-          ]);
-
-          return;
-        }
-
-        if (res.action === "CREATE_PROJECT") {
-          await createProject(res.payload);
-          const data = await getProjects(); //refresh
-          setProjects(data);
-          setOutput((prev) => [
-            ...prev,
-            { text: "Project created successfully", className: "success" }
-          ]);
-
-          return;
-        }
-
-
-        if (res.action === "UPDATE_PROJECT") {
-          await updateProject(res.payload.id, {
-            name: res.payload.name,
-            year: res.payload.year,
-            description: res.payload.description,
-          });
-
-          setOutput(prev => [
-            ...prev,
-            { text: "Project updated successfully", className: "success" }
-          ]);
-
-          return;
-        }
-
-
-      } catch (err) {
-        console.error(err);
-        setOutput((prev) => [
-          ...prev,
-          { text: "API error. Check console.", className: "error" },
-        ]);
-      }
-
-      return;
-    }
+ 
   };
 
 
