@@ -1,4 +1,3 @@
-
 /* ============================
    Terminal Custom Styles
    ============================ */
@@ -16,44 +15,38 @@
   flex-direction: column;
 }
 
-/* الهيدر */
 .terminal-header {
   display: flex;
   align-items: center;
   padding: 10px 0;
   padding-left: 20px;
-  border-bottom: 1px solid var(--color-border); /* إضافة خط تحت الهيدر */
-  background-color: var(--color-surface); /* لون الخلفية */
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface); 
 }
-
 
 .terminal-header .dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  margin-right: 5px; /* المسافة بين كل نقطة */
-  
+  margin-right: 5px; 
 }
 
 .terminal-header .dot.red {
-  background-color: var(--terminal-red); /* اللون الأحمر */
+  background-color: var(--terminal-red); 
 }
 
 .terminal-header .dot.yellow {
-  background-color: var(--terminal-yellow); /* اللون الأصفر */
+  background-color: var(--terminal-yellow); 
 }
 
 .terminal-header .dot.green {
-  background-color: var(--terminal-green); /* اللون الأخضر */
+  background-color: var(--terminal-green); 
 }
 
 .terminal-header .terminal-title {
   font-weight: 700;
   color: var(--terminal-gray)
 }
-
-
-
 
 .terminal-content {
   position: relative;
@@ -62,26 +55,21 @@
   margin-top: 20px;
 }
 
-
 .terminal-content p {
     margin: 0;
-    margin-bottom: 10px; /* المسافة بين الفقرات */
+    margin-bottom: 10px; 
 }
 
-
-/* تنسيق النص */
 .terminal-text {
-  font-weight: 400;  /* عادي */
-  color: var(--terminal-blue);  /* نفس اللون في الصورة */
-  margin-bottom: 10px;  /* المسافة أسفل النص */
+  font-weight: 400; 
+  color: var(--terminal-blue);  
+  margin-bottom: 10px;  
 }
 
-/* تنسيق النص في الـ "login-instruction" */
 .login-instruction {
-  font-weight: 300;  /* وزن الخط أخف */
-  color: var(--terminal-blue);  /* نفس اللون */
+  font-weight: 300;  
+  color: var(--terminal-blue);  
 }
-
 
 .terminal-input {
   background: transparent;
@@ -95,7 +83,6 @@
 .terminal-input::placeholder {
   color: var(--terminal-green);
 }
-
 
 .command {
   color: var(--terminal-gray)
@@ -112,19 +99,14 @@
   color: var(--color-text-primary);
 }
 
-
-/* زيادة المسافة بين الأسطر */
 .terminal-output {
-  white-space: pre-wrap; /* يسمح بعرض الأسطر الجديدة بشكل صحيح */
+  white-space: pre-wrap; 
 }
 
 .terminal-output span {
-  display: block; /* يجعل كل سطر في سطر جديد */
-  margin-bottom: 6px; /* زيادة المسافة بين كل سطر */
+  display: block; 
+  margin-bottom: 6px; 
 }
-
-
-
 
 /* ============================
    Admin shared Styles

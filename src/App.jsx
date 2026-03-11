@@ -6,6 +6,7 @@ import { getProjects } from "./api/projectsApi";
 import { getCertificates } from "./api/certificatesApi";import ProjectDetails from "./component/ProjectDetails/ProjectDetails";
 
 function App() {
+  
   const [projects, setProjects] = useState([]);
   const tagsData = [
     "ALL",
@@ -41,8 +42,7 @@ function App() {
 
           <Route path="/Admin" 
           element={<Admin 
-          email="admin@example.com" 
-          setProjects={setProjects} />} />
+          email="admin@example.com" />} />
 
           <Route path="project/:id" 
           element={<ProjectDetails 
