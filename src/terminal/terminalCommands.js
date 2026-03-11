@@ -1,13 +1,29 @@
-export function runCommand(rawCommand, { email }) {
+export function runCommand(
+  rawCommand,
+  { email,
+    isAuthenticated }) {
+
   const cmd = rawCommand.trim();
   if (!cmd) return { type: "NOOP" }; // NOOP: empty command → ignore
   const parts = cmd.split(" "); // Split command into [commandName, ...arguments]
   const main = parts[0].toLowerCase();
 
+  const protectedCommands = ["msgpanel", "projpanel", "certpanel", "logout"];
+
   const promptLine = {
     text: `${email}:~$ ${cmd}`,
     className: "command",
   };
+
+  if (protectedCommands.includes(main) && !isAuthenticated) {
+    return {
+      type: "LINES",
+      lines: [
+        promptLine,
+        { text: "Please login first.", className: "error" },
+      ],
+    };
+  }
 
   const commands = {
     help: () => ({

@@ -12,6 +12,9 @@ function Admin({ email }) {
   const [command, setCommand] = useState("");
   const [output, setOutput] = useState([]);
   const [adminView, setAdminView] = useState("terminal");
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!localStorage.getItem("token")
+  );
 
   const navigate = useNavigate();
 
@@ -22,7 +25,7 @@ function Admin({ email }) {
 
     e.preventDefault();
 
-    const res = runCommand(command, { email });
+    const res = runCommand(command, { email, isAuthenticated });
 
 
     /* ------------------- Login ------------------- */
@@ -41,6 +44,7 @@ function Admin({ email }) {
         ]);
 
         localStorage.setItem("token", data.token);
+        setIsAuthenticated(true);
 
       } catch {
 
@@ -69,11 +73,13 @@ function Admin({ email }) {
         }
 
         localStorage.removeItem("token");
+        setIsAuthenticated(false);
 
         setOutput((prev) => [
           ...prev,
           { text: "Logged out successfully.", className: "success" }
         ]);
+        navigate("/");
 
       } catch {
 
@@ -90,7 +96,7 @@ function Admin({ email }) {
     /* ------------------- Navigation ------------------- */
     if (res.type === "NAVIGATE") {
       if (res.view === "visitor") {
-        navigate("/"); 
+        navigate("/");
         setCommand("");
         return;
       }
