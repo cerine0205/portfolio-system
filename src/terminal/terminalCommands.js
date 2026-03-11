@@ -26,13 +26,32 @@ export function runCommand(rawCommand, { email }) {
       ],
     }),
 
-    login: () => ({
-      type: "LINES",
-      lines: [
-        promptLine,
-        { text: "Authentication is not connected yet.", className: "info" },
-      ],
-    }),
+    login: () => {
+
+      const args = parts.slice(1);
+
+      if (!args[0] || !args[1]) {
+        return {
+          type: "LINES",
+          lines: [
+            promptLine,
+            { text: "Usage: login <email> <password>", className: "error" },
+          ],
+        };
+      }
+
+      return {
+        type: "AUTH_LOGIN",
+        lines: [
+          promptLine,
+          { text: "Authenticating...", className: "info" },
+        ],
+        payload: {
+          email: args[0],
+          password: args[1],
+        },
+      };
+    },
 
     msgpanel: () => ({
       type: "NAVIGATE",
@@ -74,10 +93,10 @@ export function runCommand(rawCommand, { email }) {
 
 
     logout: () => ({
-      type: "LINES",
+      type: "LOGOUT",
       lines: [
         promptLine,
-        { text: "logout command is not connected yet.", className: "info" },
+        { text: "Logging out...", className: "info" },
       ],
     }),
 
@@ -102,19 +121,3 @@ export function runCommand(rawCommand, { email }) {
       ],
     };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

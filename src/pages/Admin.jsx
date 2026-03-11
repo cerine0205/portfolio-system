@@ -1,3 +1,4 @@
+import { login ,logout} from "../api/authApi";
 import "./Admin.css";
 import { useState, useRef, useEffect } from "react";
 import { runCommand } from "../terminal/terminalCommands";
@@ -12,13 +13,75 @@ function Admin({ email }) {
 
   const terminalEndRef = useRef(null);
 
-  const handleCommand = (e) => {
+  const handleCommand = async (e) => {
     if (e.key !== "Enter") return;
 
     e.preventDefault();
 
     const res = runCommand(command, { email });
 
+    if (res.type === "AUTH_LOGIN") {
+
+      setOutput((prev) => [...prev, ...res.lines]);
+      setCommand("");
+
+      try {
+
+        const data = await login(res.payload);
+
+        setOutput((prev) => [
+          ...prev,
+          { text: "Login successful.", className: "success" }
+        ]);
+
+        localStorage.setItem("token", data.token);
+
+      } catch {
+
+        setOutput((prev) => [
+          ...prev,
+          { text: "Invalid credentials.", className: "error" }
+        ]);
+
+      }
+
+      return;
+    }
+
+
+
+    
+if (res.type === "LOGOUT") {
+
+  setOutput((prev) => [...prev, ...res.lines]);
+  setCommand("");
+
+  try {
+
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      await logout(token);
+    }
+
+    localStorage.removeItem("token");
+
+    setOutput((prev) => [
+      ...prev,
+      { text: "Logged out successfully.", className: "success" }
+    ]);
+
+  } catch {
+
+    setOutput((prev) => [
+      ...prev,
+      { text: "Logout failed.", className: "error" }
+    ]);
+
+  }
+
+  return;
+}
 
     if (res.type === "NAVIGATE") {
       setAdminView(res.view);
@@ -44,7 +107,7 @@ function Admin({ email }) {
       setCommand("");
       return;
     }
- 
+
   };
 
 
