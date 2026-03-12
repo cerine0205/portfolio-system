@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import "./AdminProjects.css";
+import "../adminShared.css";
 import {
   getProjects,
   createProject,
   updateProject,
   deleteProject,
 } from "../../api/projectsApi";
-import ProjectStats from "./ProjectStats/ProjectStats";
-import ProjectGrid from "./ProjectGrid/ProjectGrid";
-import ProjectForm from "./ProjectForm/ProjectForm";
+import ProjectStats from "./ProjectStats";
+import ProjectGrid from "./ProjectGrid";
+import ProjectForm from "./ProjectForm";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function AdminProjects() {
@@ -16,7 +17,6 @@ function AdminProjects() {
   const [showForm, setShowForm] = useState(false);
   const [editingProject, setEditingProject] = useState(null);
   const [projectToDelete, setProjectToDelete] = useState(null);
-
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -26,25 +26,20 @@ function AdminProjects() {
     team_size: "",
     tech_stack: "",
     image: "",
-
     problem: "",
     solution: "",
     challenges: "",
     results: "",
-
     github_url: "",
     live_url: "",
     report_url: "",
     demo_url: "",
     presentation_url: "",
-
     role: "",
     duration: "",
     type: "",
-
     tags: "",
     screenshots: "",
-
     features: "",
     architecture: "",
     architecture_image: "",
@@ -79,25 +74,20 @@ function AdminProjects() {
       team_size: "",
       tech_stack: "",
       image: "",
-
       problem: "",
       solution: "",
       challenges: "",
       results: "",
-
       github_url: "",
       live_url: "",
       report_url: "",
       demo_url: "",
       presentation_url: "",
-
       role: "",
       duration: "",
       type: "",
-
       tags: "",
       screenshots: "",
-
       features: "",
       architecture: "",
       architecture_image: "",
@@ -113,7 +103,6 @@ function AdminProjects() {
 
   function handleEdit(project) {
     setEditingProject(project);
-
     setFormData({
       name: project.name || "",
       description: project.description || "",
@@ -121,35 +110,35 @@ function AdminProjects() {
       featured: project.featured || false,
       status: project.status || "",
       team_size: project.team_size || "",
-      tech_stack: project.tech_stack ? project.tech_stack.join(", ") : "",
+      tech_stack: project.tech_stack
+        ? project.tech_stack.join(", ")
+        : "",
       image: project.image || "",
-
       problem: project.problem || "",
       solution: project.solution || "",
       challenges: project.challenges || "",
       results: project.results || "",
-
       github_url: project.github_url || "",
       live_url: project.live_url || "",
       report_url: project.report_url || "",
       demo_url: project.demo_url || "",
       presentation_url: project.presentation_url || "",
-
       role: project.role || "",
       duration: project.duration || "",
       type: project.type || "",
-
-      tags: project.tags ? project.tags.map((tag) => tag.name).join(", ") : "",
+      tags: project.tags
+        ? project.tags.map((tag) => tag.name).join(", ")
+        : "",
       screenshots: project.screenshots
         ? project.screenshots.map((shot) => shot.image).join(", ")
         : "",
-
-      features: project.features ? project.features.join(", ") : "",
+      features: project.features
+        ? project.features.join(", ")
+        : "",
       architecture: project.architecture || "",
       architecture_image: project.architecture_image || "",
       refactor_notes: project.refactor_notes || "",
     });
-
     setShowForm(true);
   }
 
@@ -161,43 +150,35 @@ function AdminProjects() {
       description: formData.description,
       year: Number(formData.year),
       featured: formData.featured,
-
       status: formData.status || undefined,
-      team_size: formData.team_size ? Number(formData.team_size) : undefined,
-
+      team_size: formData.team_size
+        ? Number(formData.team_size)
+        : undefined,
       tech_stack: formData.tech_stack
         ? formData.tech_stack.split(",").map((item) => item.trim()).filter(Boolean)
         : undefined,
-
       image: formData.image || undefined,
-
       problem: formData.problem || undefined,
       solution: formData.solution || undefined,
       challenges: formData.challenges || undefined,
       results: formData.results || undefined,
-
       github_url: formData.github_url || undefined,
       live_url: formData.live_url || undefined,
       report_url: formData.report_url || undefined,
       demo_url: formData.demo_url || undefined,
       presentation_url: formData.presentation_url || undefined,
-
       role: formData.role || undefined,
       duration: formData.duration || undefined,
       type: formData.type || undefined,
-
       tags: formData.tags
         ? formData.tags.split(",").map((item) => item.trim()).filter(Boolean)
         : [],
-
       screenshots: formData.screenshots
         ? formData.screenshots.split(",").map((item) => item.trim()).filter(Boolean)
         : [],
-
       features: formData.features
         ? formData.features.split(",").map((item) => item.trim()).filter(Boolean)
         : undefined,
-
       architecture: formData.architecture || undefined,
       architecture_image: formData.architecture_image || undefined,
       refactor_notes: formData.refactor_notes || undefined,
@@ -235,14 +216,25 @@ function AdminProjects() {
 
   return (
     <div className="admin-page admin-projects">
-      <div className="admin-projects-top">
+      <div className="admin-projects-top admin-panel-top">
         <div>
-          <p className="admin-projects-kicker">admin / projects</p>
-          <h1 className="admin-title">Projects</h1>
-          <p className="admin-subtitle">{total} projects stored</p>
+          <p className="admin-projects-kicker admin-panel-kicker">
+            admin / projects
+          </p>
+
+          <h1 className="admin-title admin-panel-title">
+            Projects
+          </h1>
+
+          <p className="admin-subtitle admin-panel-subtitle">
+            {total} projects stored
+          </p>
         </div>
 
-        <button className="add-project-btn" onClick={handleAddClick}>
+        <button
+          className="add-project-btn admin-panel-add-btn"
+          onClick={handleAddClick}
+        >
           + Add Project
         </button>
       </div>
@@ -254,7 +246,7 @@ function AdminProjects() {
       </div>
 
       {showForm && (
-        <div className="project-modal">
+        <div className="project-modal admin-panel-modal">
           <ProjectForm
             handleSubmit={handleSubmit}
             handleChange={handleChange}
@@ -266,9 +258,11 @@ function AdminProjects() {
         </div>
       )}
 
-      <div className="projects-vault">
-        <div className="projects-vault-header">
-          <p className="project-section-kicker">Projects.Vault</p>
+      <div className="projects-vault admin-panel-vault">
+        <div className="projects-vault-header admin-panel-vault-header">
+          <p className="project-section-kicker admin-panel-section-kicker">
+            Projects.Vault
+          </p>
         </div>
 
         <ProjectGrid

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import "./AdminSkills.css";
+import './AdminSkills.css';
+import '../adminShared.css';
 import { getSkills, createSkill, deleteSkill } from "../../api/skillsApi";
-import SkillForm from "./SkillForm/SkillForm";
-import SkillStats from "./SkillStats/SkillStats";
-import SkillGrid from "./SkillGrid/SkillGrid";
+import SkillForm from "./SkillForm";
+import SkillStats from "./SkillStats";
+import SkillGrid from "./SkillGrid";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function AdminSkills() {
@@ -86,14 +87,14 @@ function AdminSkills() {
 
   return (
     <div className="admin-page admin-skills">
-      <div className="admin-certificate-top">
+      <div className="admin-panel-top">
         <div>
-          <p className="admin-certificate-kicker">admin / skills</p>
-          <h1 className="admin-certificate-title">Skills</h1>
-          <p className="admin-certificate-subtitle">{total} skills stored</p>
+          <p className="admin-panel-kicker">admin / skills</p>
+          <h1 className="admin-panel-title">Skills</h1>
+          <p className="admin-panel-subtitle">{total} skills stored</p>
         </div>
 
-        <button className="add-certificate-btn" onClick={handleAddClick}>
+        <button className="admin-panel-add-btn" onClick={handleAddClick}>
           + Add Skill
         </button>
       </div>
@@ -105,19 +106,17 @@ function AdminSkills() {
       </div>
 
       {showForm && (
-        <div className="skill-modal">
-          <SkillForm
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            formData={formData}
-            setShowForm={setShowForm}
-          />
-        </div>
+        <SkillForm
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          formData={formData}
+          setShowForm={setShowForm}
+        />
       )}
 
-      <div className="skills-vault">
-        <div className="skills-vault-header">
-          <p className="skill-section-kicker">Skills.Vault</p>
+      <div className="admin-panel-vault">
+        <div className="admin-panel-vault-header">
+          <p className="admin-panel-section-kicker">Skills.Vault</p>
         </div>
 
         <SkillGrid skills={skills} handleDelete={handleDelete} />

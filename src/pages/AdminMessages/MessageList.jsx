@@ -1,5 +1,7 @@
-import "./MessageList.css";
-import MessageCard from "../MessageCard/MessageCard";
+import './AdminMessages.css';
+import '../adminShared.css';
+
+import MessageCard from "./MessageCard";
 
 function MessageList({ messages, setSelectedMessage }) {
   return (

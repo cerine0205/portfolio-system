@@ -1,8 +1,7 @@
-
-
-
 import { useState } from "react";
-import "./ProjectForm.css";
+import './AdminProjects.css';
+import '../adminShared.css';
+
 
 function ProjectForm({
   handleSubmit,
@@ -19,14 +18,20 @@ function ProjectForm({
   }
 
   return (
-    <div className="admin-project-form-overlay" onClick={() => {
-      setShowForm(false);
-      setEditingProject(null);
-    }}>
-      <div className="admin-project-form-card" onClick={(e)=>e.stopPropagation()}>
-              <p className="admin-project-form-kicker">
-        {editingProject ? "Edit.Project" : "Add.Project"}
-      </p>
+    <div
+      className="admin-project-form-overlay"
+      onClick={() => {
+        setShowForm(false);
+        setEditingProject(null);
+      }}
+    >
+      <div
+        className="admin-project-form-card admin-panel-form-card"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <p className="admin-project-form-kicker admin-panel-form-kicker">
+          {editingProject ? "Edit.Project" : "Add.Project"}
+        </p>
 
         <form className="admin-project-form" onSubmit={handleSubmit}>
           <div className="admin-project-form-section">
@@ -343,14 +348,14 @@ function ProjectForm({
             )}
           </div>
 
-          <div className="admin-project-form-actions">
+          <div className="admin-project-form-actions admin-panel-form-actions">
             <button type="submit">
               {editingProject ? "Update" : "Create"}
             </button>
 
             <button
               type="button"
-              className="admin-cancel-btn"
+              className="admin-cancel-btn admin-panel-cancel-btn"
               onClick={() => {
                 setShowForm(false);
                 setEditingProject(null);
@@ -362,7 +367,6 @@ function ProjectForm({
         </form>
       </div>
     </div>
-
   );
 }
 

@@ -1,20 +1,22 @@
-import "./SkillForm.css";
+import './AdminSkills.css';
+import '../adminShared.css';
 
 function SkillForm({ handleSubmit, handleChange, formData, setShowForm }) {
   return (
     <div
-      className="certificate-form-overlay"
-      onClick={() => {
-        setShowForm(false);
-      }}
+      className="admin-panel-modal"
+      onClick={() => setShowForm(false)}
     >
       <div
-        className="certificate-form-card"
+        className="admin-panel-form-card"
         onClick={(e) => e.stopPropagation()}
       >
-        <p className="certificate-section-kicker">Add.Skill</p>
+        <p className="admin-panel-form-kicker">
+          Add.Skill
+        </p>
 
-        <form className="certificate-form" onSubmit={handleSubmit}>
+        <form className="admin-panel-form" onSubmit={handleSubmit}>
+
           <input
             type="text"
             name="name"
@@ -41,19 +43,22 @@ function SkillForm({ handleSubmit, handleChange, formData, setShowForm }) {
             min="0"
           />
 
-          <div className="certificate-form-actions">
-            <button type="submit">Create</button>
+          <div className="admin-panel-form-actions">
+
+            <button type="submit">
+              Create
+            </button>
 
             <button
               type="button"
-              className="cancel-btn"
-              onClick={() => {
-                setShowForm(false);
-              }}
+              className="admin-panel-cancel-btn"
+              onClick={() => setShowForm(false)}
             >
               Cancel
             </button>
+
           </div>
+
         </form>
       </div>
     </div>

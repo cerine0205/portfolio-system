@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import "./AdminCertificates.css";
+import "../adminShared.css";
 import {
   getCertificates,
   createCertificate,
   updateCertificate,
   deleteCertificate,
 } from "../../api/certificatesApi";
-
-import CertForm from "./certForm/CertForm";
-import CertStats from "./CertStats/CertStats";
-import CertGrid from "./CertGrid/CertGrid";
+import CertForm from "./CertForm";
+import CertStats from "./CertStats";
+import CertGrid from "./CertGrid";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function AdminCertificates() {
@@ -17,7 +17,6 @@ function AdminCertificates() {
   const [showForm, setShowForm] = useState(false);
   const [editingCertificate, setEditingCertificate] = useState(null);
   const [certificateToDelete, setCertificateToDelete] = useState(null);
-
   const [formData, setFormData] = useState({
     title: "",
     issuer: "",
@@ -84,10 +83,8 @@ function AdminCertificates() {
     }
 
     await loadCertificates();
-
     setShowForm(false);
     setEditingCertificate(null);
-
     setFormData({
       title: "",
       issuer: "",
@@ -124,16 +121,25 @@ function AdminCertificates() {
 
   return (
     <div className="admin-page admin-certificates">
-      <div className="admin-certificates-top">
+      <div className="admin-certificates-top admin-panel-top">
         <div>
-          <p className="admin-certificates-kicker">admin / certificates</p>
-          <h1 className="admin-certificates-title">Certificates</h1>
-          <p className="admin-certificates-subtitle">
+          <p className="admin-panel-kicker">
+            admin / certificates
+          </p>
+
+          <h1 className="admin-certificates-title admin-panel-title">
+            Certificates
+          </h1>
+
+          <p className="admin-certificates-subtitle admin-panel-subtitle">
             {total} credentials stored
           </p>
         </div>
 
-        <button className="add-certificate-btn" onClick={handleAddClick}>
+        <button
+          className="add-certificate-btn admin-panel-add-btn"
+          onClick={handleAddClick}
+        >
           + Add Certificate
         </button>
       </div>
@@ -145,7 +151,7 @@ function AdminCertificates() {
       </div>
 
       {showForm && (
-        <div className="certificate-modal">
+        <div >
           <CertForm
             handleSubmit={handleSubmit}
             handleChange={handleChange}
@@ -157,9 +163,11 @@ function AdminCertificates() {
         </div>
       )}
 
-      <div className="certificates-vault">
-        <div className="certificates-vault-header">
-          <p className="certificate-section-kicker">Certificates.Vault</p>
+      <div className="certificates-vault admin-panel-vault">
+        <div className="certificates-vault-header admin-panel-vault-header">
+          <p className="certificate-section-kicker admin-panel-section-kicker">
+            Certificates.Vault
+          </p>
         </div>
 
         <CertGrid
@@ -167,22 +175,20 @@ function AdminCertificates() {
           handleEdit={handleEdit}
           handleDelete={handleDelete}
         />
-
       </div>
-
 
       {certificateToDelete && (
         <DeleteModal
           isOpen={certificateToDelete}
           title="Delete Certificate?"
-          message={`Are you sure you want to delete "${certificates.find((cert) => cert.id === certificateToDelete)?.title || "this certificate"
-            }"?`}
+          message={`Are you sure you want to delete "${
+            certificates.find((cert) => cert.id === certificateToDelete)?.title ||
+            "this certificate"
+          }"?`}
           onConfirm={confirmDelete}
           onCancel={() => setCertificateToDelete(null)}
         />
       )}
-
-
     </div>
   );
 }

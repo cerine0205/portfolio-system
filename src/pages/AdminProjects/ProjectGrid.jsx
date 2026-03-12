@@ -1,14 +1,12 @@
-
-
-
-import ProjectCard from "../ProjectCard/ProjectCard";
-import "./ProjectGrid.css";
+import ProjectCard from "./ProjectCard";
+import './AdminProjects.css';
+import '../adminShared.css';
 
 function ProjectGrid({ projects, handleEdit, handleDelete }) {
 
   if (projects.length === 0) {
     return (
-      <p className="admin-empty-projects">
+      <p className="admin-empty-projects admin-panel-empty">
         No projects yet.
       </p>
     );
@@ -16,7 +14,6 @@ function ProjectGrid({ projects, handleEdit, handleDelete }) {
 
   return (
     <div className="admin-projects-grid">
-
       {projects.map((project) => (
         <ProjectCard
           key={project.id}
@@ -25,7 +22,6 @@ function ProjectGrid({ projects, handleEdit, handleDelete }) {
           handleDelete={handleDelete}
         />
       ))}
-
     </div>
   );
 }

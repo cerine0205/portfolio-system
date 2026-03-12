@@ -1,11 +1,13 @@
-import "./MessageCard.css";
+import './AdminMessages.css';
+import '../adminShared.css';
 
 function MessageCard({ msg, setSelectedMessage }) {
   return (
     <div
-      className="message-card"
+      className="message-card admin-panel-card"
       onClick={() => setSelectedMessage(msg)}
     >
+
       <div className="message-header">
         <h3>{msg.name}</h3>
 
@@ -14,7 +16,9 @@ function MessageCard({ msg, setSelectedMessage }) {
         )}
       </div>
 
-      <p className="message-subject">{msg.subject}</p>
+      <p className="message-subject">
+        {msg.subject}
+      </p>
 
       <p className="message-preview">
         {msg.content
@@ -25,8 +29,11 @@ function MessageCard({ msg, setSelectedMessage }) {
       </p>
 
       {msg.project && (
-        <p className="message-project">{msg.project.name}</p>
+        <p className="message-project">
+          {msg.project.name}
+        </p>
       )}
+
     </div>
   );
 }

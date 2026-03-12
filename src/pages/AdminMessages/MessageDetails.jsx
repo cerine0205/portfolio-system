@@ -1,12 +1,10 @@
-import "./MessageDetails.css";
+import './AdminMessages.css';
+import '../adminShared.css';
 
-function MessageDetails({
-  selectedMessage,
-  handleRead,
-  handleDelete
-}) {
+function MessageDetails({ selectedMessage, handleRead, handleDelete }) {
   return (
-    <div className="message-details">
+    <div className="message-details admin-panel-card">
+
       <h2>{selectedMessage.subject}</h2>
 
       <p>
@@ -29,7 +27,8 @@ function MessageDetails({
         {selectedMessage.content}
       </p>
 
-      <div className="actions">
+      <div className="actions admin-panel-card-actions">
+
         {!selectedMessage.is_read && (
           <button
             className="read"
@@ -45,7 +44,9 @@ function MessageDetails({
         >
           Delete
         </button>
+
       </div>
+
     </div>
   );
 }

@@ -1,0 +1,46 @@
+/* ===== Skills: grid ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 18px;
+}
+
+@media (max-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Skills: card content ===== */
+.skill-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+}
+
+.skill-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-card-title {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+.skill-card-category {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}

@@ -1,4 +1,5 @@
-import "./CertForm.css";
+import './AdminCertificates.css';
+import '../adminShared.css';
 
 function CertForm({
   handleSubmit,
@@ -10,21 +11,21 @@ function CertForm({
 }) {
   return (
     <div
-      className="certificate-form-overlay"
+      className="certificate-form-overlay admin-panel-modal"
       onClick={() => {
         setShowForm(false);
         setEditingCertificate(null);
       }}
     >
       <div
-        className="certificate-form-card"
+        className="certificate-form-card admin-panel-form-card"
         onClick={(e) => e.stopPropagation()}
       >
-        <p className="certificate-section-kicker">
+        <p className="admin-panel-form-kicker">
           {editingCertificate ? "Edit.Certificate" : "Add.Certificate"}
         </p>
 
-        <form className="certificate-form" onSubmit={handleSubmit}>
+        <form className="admin-panel-form" onSubmit={handleSubmit}>
           <input
             type="text"
             name="title"
@@ -66,14 +67,14 @@ function CertForm({
             onChange={handleChange}
           />
 
-          <div className="certificate-form-actions">
+          <div className="certificate-form-actions admin-panel-form-actions">
             <button type="submit">
               {editingCertificate ? "Update" : "Create"}
             </button>
 
             <button
               type="button"
-              className="cancel-btn"
+              className="cancel-btn admin-panel-cancel-btn"
               onClick={() => {
                 setShowForm(false);
                 setEditingCertificate(null);

@@ -1,10 +1,9 @@
-
-
-import './ProjectStats.css';
+import './AdminProjects.css';
+import '../adminShared.css';
 
 function ProjectStats({ value, label }) {
   return (
-    <div className="admin-project-stat-card">
+    <div className="admin-panel-stat-card">
       <h3>{value}</h3>
       <p>{label}</p>
     </div>

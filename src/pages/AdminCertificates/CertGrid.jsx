@@ -1,14 +1,12 @@
-import CertCard from "../CertCard/CertCard";
-import "./CertGrid.css";
+import CertCard from "./CertCard";
+import './AdminCertificates.css';
+import '../adminShared.css';
 
-function CertGrid({
-  certificates,
-  handleEdit,
-  handleDelete }) {
+function CertGrid({ certificates, handleEdit, handleDelete }) {
 
   if (certificates.length === 0) {
     return (
-      <p className="empty-certificates">
+      <p className="empty-certificates admin-panel-empty">
         No certificates yet.
       </p>
     );

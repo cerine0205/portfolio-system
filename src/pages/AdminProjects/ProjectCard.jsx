@@ -1,8 +1,10 @@
-import "./ProjectCard.css";
+import './AdminProjects.css';
+import '../adminShared.css';
 
 function ProjectCard({ project, handleEdit, handleDelete }) {
   return (
-    <div className="admin-project-card">
+    <div className="admin-project-card admin-panel-card">
+
       <div className="admin-project-card-content">
 
         <h3 className="admin-project-card-title">
@@ -39,7 +41,7 @@ function ProjectCard({ project, handleEdit, handleDelete }) {
 
       </div>
 
-      <div className="admin-project-card-actions">
+      <div className="admin-project-card-actions admin-panel-card-actions">
 
         <button
           className="admin-edit-project-btn"
@@ -56,6 +58,7 @@ function ProjectCard({ project, handleEdit, handleDelete }) {
         </button>
 
       </div>
+
     </div>
   );
 }
