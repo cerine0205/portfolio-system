@@ -1,15 +1,16 @@
 /* الصفحة الرئيسية */
 .home {
-  text-align: left; /* محاذاة النص إلى اليسار */
+  text-align: left;
+  /* محاذاة النص إلى اليسار */
   padding: 40px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-/* تغيير اللون للنص الذي يقدم الشخص */
 .intro-text {
-  color: var(--color-accent);  /* اللون البنفسجي أو أي لون تودين استخدامه */
+  color: var(--color-accent);
+  /* اللون البنفسجي أو أي لون تودين استخدامه */
   font-size: 18px;
-  font-weight: 70; 
+  font-weight: 70;
 }
 
 /* لتجنب انكسار النص داخل h1 */
@@ -26,7 +27,7 @@
   color: var(--color-accent);
   font-size: 100px;
   font-weight: 900;
-    line-height: .9;
+  line-height: .9;
 
 }
 
@@ -40,7 +41,8 @@
 /* الأزرار */
 .home-buttons {
   display: flex;
-  justify-content: flex-start; /* محاذاة الأزرار لليسار */
+  justify-content: flex-start;
+  /* محاذاة الأزرار لليسار */
   gap: 20px;
 }
 
@@ -61,7 +63,10 @@
 
 .view-projects:hover {
   background: var(--color-accent-hover);
+  transform: translateY(-2px);
+
 }
+
 
 .contact-me {
   background: transparent;
@@ -72,6 +77,8 @@
 .contact-me:hover {
   background: var(--color-accent-soft);
   color: var(--color-text-primary);
+  transform: translateY(-2px);
+
 }
 
 .Featured-section {
@@ -80,25 +87,32 @@
 }
 
 .featured-title {
-  font-size: 16px; /* جعل الخط أصغر */
-  font-weight: 60; /* جعل الخط أنحف */
+  font-size: 16px;
+  /* جعل الخط أصغر */
+  font-weight: 60;
+  /* جعل الخط أنحف */
   color: var(--color-accent);
   display: flex;
   align-items: center;
-  margin-bottom: 8px; /* تقليل المسافة السفلية */
+  margin-bottom: 8px;
+  /* تقليل المسافة السفلية */
 }
 
 .featured-star {
-  color: var(--color-accent); /* نجم بلون أكسنت */
-  margin-right: 5px; /* تقليل المسافة بين النجمة والنص */
-  font-size: 18px; /* جعل النجمة أصغر */
+  color: var(--color-accent);
+  /* نجم بلون أكسنت */
+  margin-right: 5px;
+  /* تقليل المسافة بين النجمة والنص */
+  font-size: 18px;
+  /* جعل النجمة أصغر */
 }
 
 .featured-line {
   flex-grow: 1;
   margin-left: 10px;
   margin-top: 10px;
-  border-top: 0.009px solid var(--color-accent); /* تغيير سمك الخط */
+  border-top: 0.009px solid var(--color-accent);
+  /* تغيير سمك الخط */
 }
 
 .Featured-card {

@@ -62,8 +62,7 @@ function Contact({ contactProject }) {
         <h1 className="contact-title">let's talk.</h1>
 
         <p className="contact-subtext">
-          Whether it's a project, a collaboration, or just a question — I'm listening.
-        </p>
+Whether it's a project idea, a collaboration, or just a question — feel free to reach out.        </p>
       </div>
 
 

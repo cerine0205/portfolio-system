@@ -142,12 +142,12 @@ function Admin({ email }) {
           <span className="dot red"></span>
           <span className="dot yellow"></span>
           <span className="dot green"></span>
-          <p className="terminal-title">Admin Dashboard</p>
+          <p className="terminal-title">Cerine Terminal</p>
         </div>
 
         <div className="terminal-content">
-          <p className="terminal-text">Portfolio Admin Terminal v1.0</p>
-          <p className="login-instruction">Type "login" to authenticate.</p>
+          <p className="terminal-text">Cerine Portfolio Terminal <span>v1.0</span></p>
+          <p className="login-instruction">Type <span>"help"</span> to begin.</p>
 
           <div className="terminal-output">{output.map((line, index) =>
             <span key={index} className={line.className}>{line.text}<br /></span>)}</div>
@@ -156,6 +156,7 @@ function Admin({ email }) {
             value={command}
             onChange={(e) => setCommand(e.target.value)}
             onKeyDown={handleCommand}
+            placeholder="Type a command..."
             autoFocus
           />
 

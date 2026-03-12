@@ -25,9 +25,9 @@ body {
 
   --terminal-green: #4fe67c;
   --terminal-yellow: #ffd24d;
-  --terminal-red: #ff6b6b;
-  --terminal-blue: #4da6ff;
-  --terminal-purple: #a970ff;
+  --terminal-red: #da5959;
+  --terminal-blue: #53a3f3;
+  --terminal-purple: #8a5fcb;
   --terminal-gray: rgb(126, 127, 128);
 
   --color-accent-soft: rgba(123, 58, 236, 0.12);

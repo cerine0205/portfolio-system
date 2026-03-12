@@ -42,7 +42,7 @@ function App() {
 
           <Route path="/Admin" 
           element={<Admin 
-          email="admin@example.com" />} />
+          email="cerine@portfolio" />} />
 
           <Route path="project/:id" 
           element={<ProjectDetails 

@@ -58,7 +58,7 @@ function Header({ ActivePage, setActivePage, handelAdmin, setContactProject }) {
           </nav>
 
           <button className="admin-btn"
-            onClick={handelAdmin}>Admin →</button>
+            onClick={handelAdmin}>Terminal →</button>
         </div>
 
       </div>

@@ -65,10 +65,20 @@
   color: var(--terminal-blue);  
   margin-bottom: 10px;  
 }
+.terminal-text span{
+  font-weight: 400; 
+  color: var(--terminal-green);  
+  margin-bottom: 10px;  
+}
 
 .login-instruction {
   font-weight: 300;  
   color: var(--terminal-blue);  
+}
+
+.login-instruction span{
+  font-weight: 300;  
+  color: var(--terminal-green);
 }
 
 .terminal-input {
@@ -81,7 +91,7 @@
 }
 
 .terminal-input::placeholder {
-  color: var(--terminal-green);
+  color: var(--terminal-purple);
 }
 
 .command {

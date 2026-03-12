@@ -10,15 +10,22 @@ function Home({ activePage,
 
     return (
         <div className="home">
-            <p className="intro-text">Software Engineer & Systems Thinker</p>
+            <p className="intro-text">
+                Full-Stack Developer • System Builder
+            </p>
 
-            <h1>Building<br /> systems <br />
-                <span>at the edge<br /></span>
-                of what's<br /> possible. </h1>
+            <h1>
+                Turning<br />
+                ideas <br />
+                <span>into real<br /></span>
+                working<br />
+                systems.
+            </h1>
 
-            <p className="description-text">I design and engineer software that operates at the boundary<br />
-                of performance, elegance, and scale. Rust, Go, TypeScript, and<br />
-                everything in between.</p>
+            <p className="description-text">
+                I design and build full-stack systems — connecting interfaces,
+                APIs, and databases into software that actually works.
+            </p>
 
             <div className="home-buttons">
                 <button className="btn view-projects" onClick={() => setActivePage("Projects")}>View Projects</button>

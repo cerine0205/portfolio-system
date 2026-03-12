@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import "./About.css";
 import { getSkills } from "../../api/skillsApi";
 
@@ -8,7 +8,7 @@ function About({ setActivePage, certificates, setSelectedCertificate }) {
   useEffect(() => {
     getSkills().then(setSkills).catch(console.error);
   }, []);
-  
+
   return (
     <div className="about">
       <div className="about-left">
@@ -19,25 +19,28 @@ function About({ setActivePage, certificates, setSelectedCertificate }) {
         </h1>
 
         <p className="about-text">
-          I'm a software engineer who spends most of my time thinking about
-          performance, elegance, and building systems that are meant to last.
+          I'm a software developer who enjoys turning ideas into real, working systems.
+          I like building full-stack applications where interfaces, APIs, and databases
+          work together in a clear and structured way.
         </p>
 
         <p className="about-text">
-          My work spans APIs, databases, UI systems, and developer tooling.
-          I enjoy building software that feels simple but is powerful under the hood.
+          I enjoy designing systems where data flows smoothly from the backend to the
+          user interface, creating software that feels simple but powerful underneath.
+          Beyond web development, I'm also interested in game development and exploring
+          artificial intelligence.
         </p>
 
         <div className="about-actions">
           <button
-            className="btn-contact"
+            className="btn contact-me"
             onClick={() => setActivePage("Contact")}
           >
             GET IN TOUCH →
           </button>
 
           <button
-            className="btn-secondary"
+            className="btn view-projects"
             onClick={() => setActivePage("Projects")}
           >
             VIEW PROJECTS
@@ -51,10 +54,10 @@ function About({ setActivePage, certificates, setSelectedCertificate }) {
 
           <div className="skills-grid">
             {skills.map((skill) => (
-                <span key={skill.id} className="skill-item">
-                  {skill.name}
-                </span>
-              ))}
+              <span key={skill.id} className="skill-item">
+                {skill.name}
+              </span>
+            ))}
           </div>
         </div>
 
