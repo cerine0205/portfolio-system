@@ -10,8 +10,9 @@ function PortfolioLayout({
   tagsData,
   certificates,
   setCertificates,
-  skills}) {
-    
+  skills,
+  offlineMode }) {
+
   const [ActivePage, setActivePage] = useState("Home");
   const [activeTag, setActiveTag] = useState("ALL");
   const [selectedProject, setSelectedProject] = useState(null);
@@ -21,44 +22,55 @@ function PortfolioLayout({
 
   const navigate = useNavigate();
 
-  const handelAdmin= ()=>{
+  const handelAdmin = () => {
     navigate("/Admin");
   }
 
 
   return (
-    <div >   
-      <Header 
-      ActivePage={ActivePage} 
-      setActivePage={setActivePage} 
-      handelAdmin={handelAdmin}
-      setContactProject={setContactProject} />
-     
-      <MainContent 
-      ActivePage={ActivePage} 
-      setActivePage={setActivePage} 
-      activeTag={activeTag} 
-      setActiveTag={setActiveTag} 
-      tagsData={tagsData} 
-      projects={projects} 
-      setProjects={setProjects} 
-      selectedProject={selectedProject} 
-      setSelectedProject={setSelectedProject}
-      certificates={certificates} 
-      setCertificates={setCertificates}
-      selectedCertificate={selectedCertificate} 
-      setSelectedCertificate={setSelectedCertificate}
-      contactProject={contactProject}
-      setContactProject={setContactProject}
-      projectBackPage={projectBackPage}
-      setProjectBackPage={setProjectBackPage}
-      skills = {skills}/>
-    
-    
-    <Footer/>
+    <div >
+
+      <Header
+        ActivePage={ActivePage}
+        setActivePage={setActivePage}
+        handelAdmin={handelAdmin}
+        setContactProject={setContactProject} />
+
+      {offlineMode && (
+        <div className="demo-banner-container">
+          <div className="demo-banner">
+            <span className="demo-dot"></span>
+            Demo mode — backend currently unavailable. Showing fallback data.
+          </div>
+        </div>
+      )}
+
+      <MainContent
+        ActivePage={ActivePage}
+        setActivePage={setActivePage}
+        activeTag={activeTag}
+        setActiveTag={setActiveTag}
+        tagsData={tagsData}
+        projects={projects}
+        setProjects={setProjects}
+        selectedProject={selectedProject}
+        setSelectedProject={setSelectedProject}
+        certificates={certificates}
+        setCertificates={setCertificates}
+        selectedCertificate={selectedCertificate}
+        setSelectedCertificate={setSelectedCertificate}
+        contactProject={contactProject}
+        setContactProject={setContactProject}
+        projectBackPage={projectBackPage}
+        setProjectBackPage={setProjectBackPage}
+        skills={skills}
+        offlineMode={offlineMode} />
+
+
+      <Footer />
     </div>
-    
+
   );
-}   
+}
 
 export default PortfolioLayout;

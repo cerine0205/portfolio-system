@@ -2,7 +2,9 @@ import "./Contact.css";
 import { useState } from "react";
 import { createMessage } from "../../api/messagesApi";
 
-function Contact({ contactProject }) {
+function Contact({ 
+  contactProject,
+offlineMode }) {
 
   const [formData, setFormData] = useState({
     name: "",
@@ -50,8 +52,9 @@ function Contact({ contactProject }) {
   return (
     <div className="contact">
 
-      {contactProject && (
-        <p className="contact-project-note">
+      {contactProject && !offlineMode && (
+        <p className="demo-banner">
+          <span className="demo-dot"></span>
           Contacting about: <strong>{contactProject.name}</strong>
         </p>
       )}
@@ -62,7 +65,7 @@ function Contact({ contactProject }) {
         <h1 className="contact-title">let's talk.</h1>
 
         <p className="contact-subtext">
-Whether it's a project idea, a collaboration, or just a question — feel free to reach out.        </p>
+          Whether it's a project idea, a collaboration, or just a question — feel free to reach out.        </p>
       </div>
 
 

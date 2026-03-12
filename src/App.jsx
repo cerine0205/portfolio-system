@@ -18,6 +18,7 @@ function App() {
 
   const [certificates, setCertificates] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [offlineMode, setOfflineMode] = useState(false);  
 
   useEffect(() => {
     async function load() {
@@ -26,12 +27,17 @@ function App() {
         const certificateData = await getCertificates();
         const skillData = await getSkills();
 
+        setOfflineMode(false);
+
         setProjects(projectData);
         setCertificates(certificateData);
         setSkills(skillData);
       }
       catch (error) {
         console.warn("API failed, using fallback data");
+        
+        setOfflineMode(true);
+        
         setProjects(fallbackProjects);
         setCertificates(fallbackCertificates);
         setSkills(fallbackSkills);
@@ -53,7 +59,8 @@ function App() {
               tagsData={tagsData}
               certificates={certificates}
               setCertificates={setCertificates}
-              skills={skills} />} />
+              skills={skills} 
+              offlineMode={offlineMode}/>} />
 
           <Route path="/Admin"
             element={<Admin
@@ -71,7 +78,8 @@ function App() {
               tagsData={tagsData}
               certificates={certificates}
               setCertificates={setCertificates}
-              skills={skills} />}
+              skills={skills}
+              offlineMode={offlineMode} />}
           ></Route>
         </Routes>
 

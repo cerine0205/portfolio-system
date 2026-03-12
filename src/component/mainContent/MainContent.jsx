@@ -22,7 +22,8 @@ function MainContent({ ActivePage,
   setContactProject,
   projectBackPage,
   setProjectBackPage,
-  skills }) {
+  skills,
+  offlineMode }) {
 
   if (ActivePage === "Home") {
     return <Home
@@ -54,7 +55,8 @@ function MainContent({ ActivePage,
 
   else if (ActivePage === "Contact") {
     return <Contact
-    contactProject={contactProject} />;
+    contactProject={contactProject}
+    offlineMode={offlineMode} />;
   }
 
   else if (ActivePage === "ProjectDetails") {
