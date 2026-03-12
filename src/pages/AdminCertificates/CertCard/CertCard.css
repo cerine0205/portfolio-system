@@ -1,3 +1,19 @@
+.certificate-form-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
+  z-index: 999;
+}
+
+.certificate-form-card {
+  width: min(500px, 95%);
+  margin: auto;
+}
+
 .certificate-card {
   background: var(--color-card);
   border: 1px solid var(--color-border);
