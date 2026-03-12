@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
 import "./About.css";
-import { getSkills } from "../../api/skillsApi";
 
-function About({ setActivePage, certificates, setSelectedCertificate }) {
-  const [skills, setSkills] = useState([]);
+function About({
+  setActivePage,
+  certificates,
+  setSelectedCertificate,
+  skills }) {
 
-  useEffect(() => {
-    getSkills().then(setSkills).catch(console.error);
-  }, []);
 
   return (
     <div className="about">

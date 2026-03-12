@@ -9,7 +9,8 @@ function PortfolioLayout({
   setProjects,
   tagsData,
   certificates,
-  setCertificates}) {
+  setCertificates,
+  skills}) {
     
   const [ActivePage, setActivePage] = useState("Home");
   const [activeTag, setActiveTag] = useState("ALL");
@@ -50,7 +51,8 @@ function PortfolioLayout({
       contactProject={contactProject}
       setContactProject={setContactProject}
       projectBackPage={projectBackPage}
-      setProjectBackPage={setProjectBackPage}/>
+      setProjectBackPage={setProjectBackPage}
+      skills = {skills}/>
     
     
     <Footer/>

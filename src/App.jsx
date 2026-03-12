@@ -3,10 +3,13 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Admin from "./pages/Admin";
 import { useState, useEffect } from "react";
 import { getProjects } from "./api/projectsApi";
-import { getCertificates } from "./api/certificatesApi";import ProjectDetails from "./component/ProjectDetails/ProjectDetails";
+import { getCertificates } from "./api/certificatesApi"; 
+import { getSkills } from "./api/skillsApi";
+import ProjectDetails from "./component/ProjectDetails/ProjectDetails";
+import { fallbackCertificates, fallbackProjects, fallbackSkills } from "./data/fallbackData";
 
 function App() {
-  
+
   const [projects, setProjects] = useState([]);
   const tagsData = [
     "ALL",
@@ -14,15 +17,26 @@ function App() {
   ];
 
   const [certificates, setCertificates] = useState([]);
-
+  const [skills, setSkills] = useState([]);
 
   useEffect(() => {
     async function load() {
-      const projectData = await getProjects();
-      const certificateData = await getCertificates();
+      try {
+        const projectData = await getProjects();
+        const certificateData = await getCertificates();
+        const skillData = await getSkills();
 
-      setProjects(projectData);
-      setCertificates(certificateData);
+        setProjects(projectData);
+        setCertificates(certificateData);
+        setSkills(skillData);
+      }
+      catch (error) {
+        console.warn("API failed, using fallback data");
+        setProjects(fallbackProjects);
+        setCertificates(fallbackCertificates);
+        setSkills(fallbackSkills);
+      }
+   
     }
     load();
   }, []);
@@ -32,31 +46,33 @@ function App() {
       <HashRouter >
         <Routes>
 
-          <Route path="/" 
-          element={<PortfolioLayout 
-          projects={projects} 
-          setProjects={setProjects} 
-          tagsData={tagsData}  
-          certificates={certificates} 
-          setCertificates={setCertificates}/>} />
+          <Route path="/"
+            element={<PortfolioLayout
+              projects={projects}
+              setProjects={setProjects}
+              tagsData={tagsData}
+              certificates={certificates}
+              setCertificates={setCertificates}
+              skills={skills} />} />
 
-          <Route path="/Admin" 
-          element={<Admin 
-          email="cerine@portfolio" />} />
+          <Route path="/Admin"
+            element={<Admin
+              email="cerine@portfolio" />} />
 
-          <Route path="project/:id" 
-          element={<ProjectDetails 
-          projects={projects} />} />
+          <Route path="project/:id"
+            element={<ProjectDetails
+              projects={projects} />} />
 
-          <Route 
-          path={"*"}
-          element={<PortfolioLayout 
-          projects={projects} 
-          setProjects={setProjects} 
-          tagsData={tagsData} 
-          certificates={certificates} 
-          setCertificates={setCertificates} />} 
-         ></Route>
+          <Route
+            path={"*"}
+            element={<PortfolioLayout
+              projects={projects}
+              setProjects={setProjects}
+              tagsData={tagsData}
+              certificates={certificates}
+              setCertificates={setCertificates}
+              skills={skills} />}
+          ></Route>
         </Routes>
 
       </HashRouter>

@@ -21,7 +21,8 @@ function MainContent({ ActivePage,
   contactProject,
   setContactProject,
   projectBackPage,
-  setProjectBackPage }) {
+  setProjectBackPage,
+  skills }) {
 
   if (ActivePage === "Home") {
     return <Home
@@ -47,7 +48,8 @@ function MainContent({ ActivePage,
     return <About
       setActivePage={setActivePage}
       certificates={certificates}
-      setSelectedCertificate={setSelectedCertificate} />;
+      setSelectedCertificate={setSelectedCertificate}
+      skills= {skills} />;
   }
 
   else if (ActivePage === "Contact") {
