@@ -8,7 +8,7 @@ export function runCommand(
   const parts = cmd.split(" "); // Split command into [commandName, ...arguments]
   const main = parts[0].toLowerCase();
 
-  const protectedCommands = ["msgpanel", "projpanel", "certpanel", "logout"];
+  const protectedCommands = ["msgpanel", "projpanel", "certpanel", "skillpanel", "logout"];
 
   const promptLine = {
     text: `${email}:~$ ${cmd}`,
@@ -34,6 +34,7 @@ export function runCommand(
         { text: "msgPanel    - open messages panel", className: "info" },
         { text: "projPanel   - open projects panel", className: "info" },
         { text: "certPanel   - open certificates panel", className: "info" },
+        { text: "skillPanel - open skills panel", className: "info" },
         { text: "closePanel  - return to terminal", className: "info" },
         { text: "clear       - clear terminal", className: "info" },
         { text: 'logout      - logout', className: "info" },
@@ -94,6 +95,15 @@ export function runCommand(
         { text: "Opening Certificates Panel...", className: "info" },
       ],
       view: "certificates"
+    }),
+
+    skillpanel: () => ({
+      type: "NAVIGATE",
+      lines: [
+        promptLine,
+        { text: "Opening Skills Panel...", className: "info" },
+      ],
+      view: "skills",
     }),
 
     closepanel: () => ({

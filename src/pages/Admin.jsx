@@ -6,6 +6,7 @@ import AdminMessages from "./AdminMessages/AdminMessages";
 import AdminProjects from "./AdminProjects/AdminProjects";
 import AdminCertificates from "./AdminCertificates/AdminCertificates";
 import { useNavigate } from "react-router-dom";
+import AdminSkills from "./AdminSkills/AdminSkills";
 
 function Admin({ email }) {
 
@@ -168,6 +169,7 @@ function Admin({ email }) {
       {adminView === "messages" && <AdminMessages />}
       {adminView === "projects" && <AdminProjects />}
       {adminView === "certificates" && <AdminCertificates />}
+      {adminView === "skills" && <AdminSkills />}
 
     </div>
   );
