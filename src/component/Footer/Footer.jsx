@@ -1,6 +1,6 @@
 import "./Footer.css";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
-
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 function Footer() {
   return (
     <footer className="footer">
@@ -24,8 +24,7 @@ function Footer() {
         </a>
 
         <a href="https://x.com/c_2erine?s=21" target="_blank" rel="noreferrer">
-          <FaTwitter className="footer-icon" />
-          Twitter
+          <FaXTwitter className="footer-icon" />   
         </a>
 
         <a href="mailto:saljahdali0205@outlook.com">
