@@ -30,7 +30,9 @@ function AdminProjects() {
     solution: "",
     challenges: "",
     results: "",
-    github_url: "",
+    repo: "",
+    frontend_repo: "",
+    backend_repo: "",
     live_url: "",
     report_url: "",
     demo_url: "",
@@ -57,7 +59,6 @@ function AdminProjects() {
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
-
     setFormData({
       ...formData,
       [name]: type === "checkbox" ? checked : value,
@@ -78,7 +79,9 @@ function AdminProjects() {
       solution: "",
       challenges: "",
       results: "",
-      github_url: "",
+      repo: "",
+      frontend_repo: "",
+      backend_repo: "",
       live_url: "",
       report_url: "",
       demo_url: "",
@@ -110,15 +113,15 @@ function AdminProjects() {
       featured: project.featured || false,
       status: project.status || "",
       team_size: project.team_size || "",
-      tech_stack: project.tech_stack
-        ? project.tech_stack.join(", ")
-        : "",
+      tech_stack: project.tech_stack ? project.tech_stack.join(", ") : "",
       image: project.image || "",
       problem: project.problem || "",
       solution: project.solution || "",
       challenges: project.challenges || "",
       results: project.results || "",
-      github_url: project.github_url || "",
+      repo: project.repo || "",
+      frontend_repo: project.frontend_repo || "",
+      backend_repo: project.backend_repo || "",
       live_url: project.live_url || "",
       report_url: project.report_url || "",
       demo_url: project.demo_url || "",
@@ -126,15 +129,11 @@ function AdminProjects() {
       role: project.role || "",
       duration: project.duration || "",
       type: project.type || "",
-      tags: project.tags
-        ? project.tags.map((tag) => tag.name).join(", ")
-        : "",
+      tags: project.tags ? project.tags.map((tag) => tag.name).join(", ") : "",
       screenshots: project.screenshots
         ? project.screenshots.map((shot) => shot.image).join(", ")
         : "",
-      features: project.features
-        ? project.features.join(", ")
-        : "",
+      features: project.features ? project.features.join(", ") : "",
       architecture: project.architecture || "",
       architecture_image: project.architecture_image || "",
       refactor_notes: project.refactor_notes || "",
@@ -150,26 +149,26 @@ function AdminProjects() {
       description: formData.description,
       year: Number(formData.year),
       featured: formData.featured,
-      status: formData.status || undefined,
-      team_size: formData.team_size
-        ? Number(formData.team_size)
-        : undefined,
+      status: formData.status || null,
+      team_size: formData.team_size ? Number(formData.team_size) : null,
       tech_stack: formData.tech_stack
         ? formData.tech_stack.split(",").map((item) => item.trim()).filter(Boolean)
-        : undefined,
-      image: formData.image || undefined,
-      problem: formData.problem || undefined,
-      solution: formData.solution || undefined,
-      challenges: formData.challenges || undefined,
-      results: formData.results || undefined,
-      github_url: formData.github_url || undefined,
-      live_url: formData.live_url || undefined,
-      report_url: formData.report_url || undefined,
-      demo_url: formData.demo_url || undefined,
-      presentation_url: formData.presentation_url || undefined,
-      role: formData.role || undefined,
-      duration: formData.duration || undefined,
-      type: formData.type || undefined,
+        : [],
+      image: formData.image || null,
+      problem: formData.problem || null,
+      solution: formData.solution || null,
+      challenges: formData.challenges || null,
+      results: formData.results || null,
+      repo: formData.repo || null,
+      frontend_repo: formData.frontend_repo || null,
+      backend_repo: formData.backend_repo || null,
+      live_url: formData.live_url || null,
+      report_url: formData.report_url || null,
+      demo_url: formData.demo_url || null,
+      presentation_url: formData.presentation_url || null,
+      role: formData.role || null,
+      duration: formData.duration || null,
+      type: formData.type || null,
       tags: formData.tags
         ? formData.tags.split(",").map((item) => item.trim()).filter(Boolean)
         : [],
@@ -178,10 +177,10 @@ function AdminProjects() {
         : [],
       features: formData.features
         ? formData.features.split(",").map((item) => item.trim()).filter(Boolean)
-        : undefined,
-      architecture: formData.architecture || undefined,
-      architecture_image: formData.architecture_image || undefined,
-      refactor_notes: formData.refactor_notes || undefined,
+        : [],
+      architecture: formData.architecture || null,
+      architecture_image: formData.architecture_image || null,
+      refactor_notes: formData.refactor_notes || null,
     };
 
     if (editingProject) {
@@ -202,7 +201,6 @@ function AdminProjects() {
 
   async function confirmDelete() {
     if (!projectToDelete) return;
-
     await deleteProject(projectToDelete);
     await loadProjects();
     setProjectToDelete(null);
@@ -276,9 +274,8 @@ function AdminProjects() {
         <DeleteModal
           isOpen={projectToDelete}
           title="Delete Project?"
-          message={`Are you sure you want to delete "${
-            projects.find((p) => p.id === projectToDelete)?.name || "this project"
-          }"?`}
+          message={`Are you sure you want to delete "${projects.find((p) => p.id === projectToDelete)?.name || "this project"
+            }"?`}
           onConfirm={confirmDelete}
           onCancel={() => setProjectToDelete(null)}
         />

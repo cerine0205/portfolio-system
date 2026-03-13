@@ -283,11 +283,28 @@ function ProjectForm({
 
             {openSection === "links" && (
               <div className="admin-project-form-section-body">
+
                 <input
                   type="text"
-                  name="github_url"
-                  placeholder="GitHub URL"
-                  value={formData.github_url}
+                  name="repo"
+                  placeholder="Repository URL (for non-web projects)"
+                  value={formData.repo}
+                  onChange={handleChange}
+                />
+
+                <input
+                  type="text"
+                  name="frontend_repo"
+                  placeholder="Frontend Repo URL"
+                  value={formData.frontend_repo}
+                  onChange={handleChange}
+                />
+
+                <input
+                  type="text"
+                  name="backend_repo"
+                  placeholder="Backend Repo URL"
+                  value={formData.backend_repo}
                   onChange={handleChange}
                 />
 
@@ -322,6 +339,7 @@ function ProjectForm({
                   value={formData.report_url}
                   onChange={handleChange}
                 />
+
               </div>
             )}
           </div>
