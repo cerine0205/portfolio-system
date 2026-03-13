@@ -56,7 +56,7 @@ export function runCommand(rawCommand, { email, isAuthenticated }) {
           { text: "logout - logout", className: "info" },
         ]
         : [
-          { text: "Admin", className: "success" },
+          { text: "Admin", className: "title" },
           { text: "login <email> <password> - login as admin", className: "info" },
         ];
 
@@ -80,7 +80,7 @@ export function runCommand(rawCommand, { email, isAuthenticated }) {
         },
         {
           text: "React • Laravel • APIs • Databases • Game Dev • AI",
-          className: "success",
+          className: "title",
         },
       ],
     }),
