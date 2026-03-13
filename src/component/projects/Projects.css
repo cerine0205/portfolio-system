@@ -1,8 +1,8 @@
 .projects {
-  background-color: var(--color-background); /* Background color */
-  color: var(--color-text-primary); /* Text color */
+  background-color: var(--color-background); 
+  color: var(--color-text-primary); 
   padding: 50px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font family */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .project-header {
@@ -13,14 +13,14 @@
 .work-text {
   font-size: 10px;
   letter-spacing: 2px;
-  color: var(--color-accent); /* Secondary text color */
+  color: var(--color-accent); 
   margin-bottom: 8px;
 }
 
 .projects-title {
   font-size: 45px;
   font-weight: bold;
-  color: var(--color-text-primary); /* Primary text color */
+  color: var(--color-text-primary); 
   margin-bottom: 20px;
 }
 
@@ -31,8 +31,8 @@
 
 .tag-list {
   display: flex;
-  flex-wrap: wrap;   /* هذا المهم 👈 */
-  gap: 10px;         /* مسافة بين التاقات */
+  flex-wrap: wrap;  
+  gap: 10px;        
   padding: 0;
   margin: 0;
   list-style: none;
@@ -42,27 +42,27 @@
   cursor: pointer;
   padding: 8px 20px;
   font-size: 14px;
-  background-color: var(--color-surface); /* Surface color */
-  border-radius: 5px; /* Rounded corners */
-  color: var(--color-text-muted); /* Muted text color */
-  border: 1px solid var(--color-border); /* Border color */
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  background-color: var(--color-surface); 
+  border-radius: 5px; 
+  color: var(--color-text-muted); 
+  border: 1px solid var(--color-border); 
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .tag-item:hover {
-  background-color: var(--color-accent-hover); /* Hover effect */
+  background-color: var(--color-accent-hover); 
 }
 
 .tag-item-active {
   cursor: pointer;
   padding: 8px 20px;
   font-size: 14px;
-  background-color: var(--color-accent); /* Active tag color */
-  border-radius: 5px; /* Rounded corners */
-  color: white; /* White text for active tag */
-  border: 1px solid var(--color-accent); /* Active tag border */
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  background-color: var(--color-accent); 
+  border-radius: 5px;
+  color: white; 
+  border: 1px solid var(--color-accent); 
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -75,57 +75,52 @@
 }
 
 
-
-
-
-
-
-
-
-/* Search Container */
+/* search */
 .search-container {
-  margin: 10px 0 18px;
-  width: 440px;      /* 👈 أصغر */
-  max-width: 100%;
-  margin-top: 20px;
-}
-
-/* Search Input */
-.search-input {
   width: 100%;
-  height: 35px;      /* 👈 أقصر */
-  padding: 6px;
-  box-sizing: border-box;
-  padding-left: 0;
-  font-size: 13px;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-
-  color: var(--color-text-primary);
-  outline: none;
-
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-
-  transition: border-color 0.15s ease, background 0.15s ease;
+  display: flex;
+  margin: 30px 0;
 }
 
+.search-box {
+  width: min(420px, 90%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
+  padding: 12px 16px;
 
-/* Placeholder */
-.search-input::placeholder {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+
+  box-shadow: var(--shadow-card);
+
+  transition: all 0.25s ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  transform: translateY(-2px);
+}
+
+.search-icon {
+  font-size: 14px;
   color: var(--color-text-muted);
 }
 
-/* Focus خفيف ومرتب */
-.search-input:focus {
-  border-color: var(--color-accent);
-  background: var(--color-surface);
+.search-input {
+  flex: 1;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: var(--color-text-primary);
+  font-size: 14px;
 }
 
-/* Hover خفيف جداً */
-.search-input:hover {
-  border-color: rgba(255,255,255,0.15);
+.search-input::placeholder {
+  color: var(--color-text-muted);
 }

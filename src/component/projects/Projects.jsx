@@ -42,15 +42,25 @@ function Projects({ activeTag,
       <div className="project-header">
         <p className="work-text">ALL WORK</p>
 
+
         <div className="search-container">
-          <input type="text"
-            placeholder="search projects..."
-            value={searchTerm}
-            onChange={(e) => {
-              const value = e.target.value;
-              setSearchTerm(value);
-              filterProjectsByTag(activeTag, value);
-            }} className="search-input" />
+          <div className="search-box">
+
+            <span className="search-icon">⌕</span>
+
+            <input
+              type="text"
+              placeholder="Search projects..."
+              value={searchTerm}
+              onChange={(e) => {
+                const value = e.target.value;
+                setSearchTerm(value);
+                filterProjectsByTag(activeTag, value);
+              }}
+              className="search-input"
+            />
+
+          </div>
         </div>
 
         <h1 className="projects-title">Projects</h1>
