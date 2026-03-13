@@ -126,7 +126,29 @@ function Admin({ email }) {
       setCommand("");
       return;
     }
-    /* ------------------------------------------------------------ */
+
+
+    /* ------------------- Theme ------------------- */
+    if (res.type === "THEME") {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", next);
+
+      setOutput((prev) => [...prev, ...res.lines]);
+      setCommand("");
+      return;
+    }
+
+    /* ------------------- Url ------------------- */
+
+    if (res.type === "OPEN_URL") {
+      setOutput((prev) => [...prev, ...res.lines]);
+      window.open(res.url, "_blank");
+      setCommand("");
+      return;
+    }
+
 
   };
 
