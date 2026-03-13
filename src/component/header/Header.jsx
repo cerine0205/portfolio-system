@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toggleTheme } from "../../theme";
 import "./Header.css";
 
 function Header({ ActivePage, setActivePage, handelAdmin, setContactProject }) {
@@ -11,9 +12,9 @@ function Header({ ActivePage, setActivePage, handelAdmin, setContactProject }) {
 
   const [dark, setDark] = useState(false);
 
-  const toggleTheme = () => {
-    setDark(!dark);
-    document.documentElement.setAttribute("data-theme", dark ? "light" : "dark");
+  const handleToggle = () => {
+    toggleTheme();
+    setDark((prev) => !prev);
   };
 
   return (
@@ -22,7 +23,7 @@ function Header({ ActivePage, setActivePage, handelAdmin, setContactProject }) {
 
         <div className="left-side">
           <div className="theme-container">
-            <button onClick={toggleTheme} className="theme-btn">
+            <button onClick={handleToggle} className="theme-btn">
               {dark ? (<img src="https://cerine0205.github.io/portfolio-system/assets/sun.png" alt="Light Mode" className="theme-icon" />)
                 : (<img src="https://cerine0205.github.io/portfolio-system/assets/moon.png" alt="Dark Mode" className="theme-icon" />)}
             </button>

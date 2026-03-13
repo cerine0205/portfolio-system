@@ -7,7 +7,7 @@ import AdminProjects from "./AdminProjects/AdminProjects";
 import AdminCertificates from "./AdminCertificates/AdminCertificates";
 import { useNavigate } from "react-router-dom";
 import AdminSkills from "./AdminSkills/AdminSkills";
-
+import { toggleTheme } from "../theme";
 function Admin({ email }) {
 
   const [command, setCommand] = useState("");
@@ -130,11 +130,7 @@ function Admin({ email }) {
 
     /* ------------------- Theme ------------------- */
     if (res.type === "THEME") {
-      const html = document.documentElement;
-      const current = html.getAttribute("data-theme") || "dark";
-      const next = current === "dark" ? "light" : "dark";
-      html.setAttribute("data-theme", next);
-
+      toggleTheme();
       setOutput((prev) => [...prev, ...res.lines]);
       setCommand("");
       return;
