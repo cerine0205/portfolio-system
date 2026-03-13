@@ -49,7 +49,6 @@ function ProjectDetails({
 
         <div className="project-hero-content">
           <p className="project-kicker">PROJECT</p>
-
           <h1 className="project-title">{project.name}</h1>
 
           <p className="project-description">
@@ -100,14 +99,36 @@ function ProjectDetails({
               </a>
             )}
 
-            {project.github_url && (
+            {project.repo && (
               <a
-                href={project.github_url}
+                href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-link secondary"
               >
-                GitHub
+                View Repository
+              </a>
+            )}
+
+            {project.frontend_repo && (
+              <a
+                href={project.frontend_repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link secondary"
+              >
+                Frontend Source
+              </a>
+            )}
+
+            {project.backend_repo && (
+              <a
+                href={project.backend_repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link secondary"
+              >
+                Backend Source
               </a>
             )}
 
@@ -164,7 +185,6 @@ function ProjectDetails({
 
         <div className="project-panel full-width">
           <h2 className="section-title">Tech Stack</h2>
-
           {(project.tech_stack || []).length > 0 ? (
             <div className="project-tech-list">
               {project.tech_stack.map((tech, index) => (
@@ -181,7 +201,6 @@ function ProjectDetails({
         {project.features?.length > 0 && (
           <div className="project-panel full-width">
             <h2 className="section-title">Features</h2>
-
             <ul className="project-features">
               {project.features.map((feature, index) => (
                 <li key={index}>{feature}</li>
