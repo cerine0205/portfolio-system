@@ -2,9 +2,9 @@ import "./Contact.css";
 import { useState } from "react";
 import { createMessage } from "../../api/messagesApi";
 
-function Contact({ 
+function Contact({
   contactProject,
-offlineMode }) {
+  offlineMode }) {
 
   const [formData, setFormData] = useState({
     name: "",
@@ -13,6 +13,7 @@ offlineMode }) {
     content: ""
   });
 
+  const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState("");
 
   function handleChange(e) {
@@ -27,12 +28,15 @@ offlineMode }) {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    if (isSending) return;
+ 
     const payload = {
       ...formData,
       project_id: contactProject?.id || null
     };
 
     try {
+      setIsSending(true);
       await createMessage(payload);
 
       setStatus("Message sent successfully!");
@@ -46,6 +50,9 @@ offlineMode }) {
 
     } catch (error) {
       setStatus("Failed to send message.");
+    }
+    finally {
+      setIsSending(false);
     }
   }
 
@@ -108,8 +115,8 @@ offlineMode }) {
             required
           ></textarea>
 
-          <button type="submit">
-            Send Message →
+          <button type="submit" disabled={isSending}>
+            {isSending ? "Sending..." : "Send Message →"}
           </button>
 
         </form>

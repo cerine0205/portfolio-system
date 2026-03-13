@@ -98,6 +98,11 @@
   transform: translateY(-2px);
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* ================= STATUS MESSAGE ================= */
 
 .contact-status {
