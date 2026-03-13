@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  font-family: 'Courier New', Courier, monospace;
   font-size: 13px;
 }
 
@@ -21,7 +20,7 @@
   padding: 10px 0;
   padding-left: 20px;
   border-bottom: 1px solid var(--color-border);
-  background-color: var(--color-surface); 
+  background-color: var(--color-border); 
 }
 
 .terminal-header .dot {
@@ -45,7 +44,8 @@
 
 .terminal-header .terminal-title {
   font-weight: 700;
-  color: var(--terminal-gray)
+  color: var(--color-text-secondary);
+  margin-left:5px;
 }
 
 .terminal-content {
@@ -104,6 +104,10 @@
 
 .error {
   color: var(--terminal-red); 
+}
+
+.title{
+  color: var(--terminal-purple);
 }
 .console-text {
   color: var(--color-text-primary);

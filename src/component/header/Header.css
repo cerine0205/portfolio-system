@@ -1,12 +1,11 @@
-/* يخلي الهيدر يغطي عرض الشاشة حتى لو الأب محبوس */
 .header {
   width: 100%;
   margin-left: calc(50% - 50vw);
   background: var(--color-background);
   border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-border);
 }
 
-/* محتوى الهيدر متمركز */
 .header-container {
   max-width: 100%;
   margin: 0 auto;
@@ -16,14 +15,12 @@
   align-items: center;
 }
 
-/* تخصيص العناصر الجانبية (يمين ويسار) */
 .left-side {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-/* تعديل تصميم اللوقو */
 .logo h1 {
   margin: 0;
   font-size: 22px;
@@ -45,23 +42,21 @@
 }
 
 .theme-btn:hover {
-  transform: scale(1.1); /* تأثير التكبير عند التمرير */
+  transform: scale(1.1);
 }
 
 .theme-icon {
-  width: 24px; /* عرض الصورة */
-  height: 24px; /* ارتفاع الصورة */
+  width: 24px;
+  height: 24px;
   transition: all 0.3s ease;
 }
 
-/* تخصيص الجزء الأيمن من الهيدر */
 .right-side {
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
-/* قائمة التنقل (Nav) */
 .nav-list {
   list-style: none;
   display: flex;
@@ -71,7 +66,6 @@
   padding: 0;
 }
 
-/* تخصيص العناصر في القائمة */
 .nav-item,
 .nav-item-active {
   font-size: 12px;
@@ -105,12 +99,11 @@
   border-radius: 999px;
 }
 
-/* تخصيص زر Admin */
 .admin-btn {
   padding: 10px 18px;
   border-radius: 10px;
-  border: 1px solid rgba(123, 58, 236, 0.5);
-  background: rgba(123, 58, 236, 0.08);
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent-soft);
   color: var(--color-accent);
   font-size: 12px;
   letter-spacing: 2px;
@@ -120,49 +113,43 @@
 }
 
 .admin-btn:hover {
-  background: var(--color-accent-soft);
+  background: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-text-primary);
 }
 
-/* ==============================
-   Media Query للجوال
-   ============================== */
 @media (max-width: 768px) {
-  /* تعديل حجم اللوجو */
   .logo h1 {
-    font-size: 18px;  /* تصغير حجم النص */
+    font-size: 18px;
   }
 
-  /* تعديل حجم الأيقونات */
   .theme-icon {
-    width: 18px; /* تصغير الأيقونات */
+    width: 18px;
     height: 18px;
   }
 
-  /* تعديل الزر */
   .admin-btn {
-   padding: 6px 12px;   /* تصغير المسافة الداخلية */
-  font-size: 10px;     /* تصغير حجم النص */
-  width: auto;         /* عرض الزر يكون تلقائي بناءً على المحتوى */
-  height: auto;        /* ارتفاع الزر يتناسب مع المحتوى */
-  border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 10px;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
   }
 
-  /* تعديل القائمة */
-  .nav-item, .nav-item-active {
-    font-size: 10px;  /* تصغير حجم النص في عناصر التنقل */
+  .nav-item,
+  .nav-item-active {
+    font-size: 10px;
   }
 
   .nav-list {
-    gap: 10px;  /* تقليل المسافة بين العناصر */
+    gap: 10px;
   }
 
-  .right-side{
+  .right-side {
     gap: 5px;
   }
 
-  .left-side{
+  .left-side {
     gap: 3px;
   }
 }

@@ -2,16 +2,23 @@
   background: var(--color-card);
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  box-shadow: var(--shadow-card);
+
+  border: 1px solid var(--color-border);
+
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
   width: 350px;
   min-height: 420px;
   margin: 15px;
+
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
+
   cursor: pointer;
 }
 
@@ -20,8 +27,10 @@
   height: 200px;
   min-height: 200px;
   max-height: 200px;
+
   overflow: hidden;
   border-radius: 10px;
+
   flex: 0 0 200px;
 }
 
@@ -33,22 +42,23 @@
 }
 
 .project-card:hover {
-  transform: scale(1.05); /* تكبير الكارد عند التمرير */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
 }
-
-
 
 .project-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-text-primary); /* تغيير اللون وفقًا للمتغير */
+
+  color: var(--color-text-tertiary);
+
   margin: 10px 0;
 }
 
 .project-description {
   font-size: 14px;
-  color: var(--color-text-secondary); /* تغيير اللون وفقًا للمتغير */
+
+  color: var(--color-text-secondary);
+
   margin: 10px 0;
   line-height: 1.4;
 }
@@ -57,46 +67,59 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
-  flex-wrap: wrap; /* حتى لا تخرج التاقات من حدود الكارد */
+
+  flex-wrap: wrap;
 }
 
 .tag {
-  background-color: var(--color-accent-soft); /* استخدام المتغير لعرض اللون */
-  color: var(--color-accent); /* استخدام المتغير للون النص */
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+
   padding: 5px 10px;
   border-radius: 15px;
+
   font-size: 12px;
-  margin-right: 5px;
-  transition: background-color 0.3s ease;
+
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .tag:hover {
-  background-color: rgba(123, 58, 236, 0.4); /* تغيير لون التاق عند التمرير */
+  background: var(--color-accent);
+  color: white;
 }
 
 .featured {
   position: absolute;
-  top: 30px; /* المسافة من الأعلى (يمكنك تعديل الرقم حسب الحاجة) */
-  right: 10px;  /* المسافة من اليمين */
-  background-color: #7b3aec;
+  top: 30px;
+  right: 10px;
+
+  background: var(--color-accent);
+
   color: white;
+
   padding: 5px 10px;
+
   font-size: 12px;
   font-weight: bold;
+
   border-radius: 5px;
+
   text-transform: uppercase;
+
   margin-right: 20px;
 }
 
 .project-date {
-  font-size: 12px;  /* حجم الخط */
-  color: rgba(255, 255, 255, 0.5);  /* اللون الأخف للتاريخ */
+  font-size: 12px;
+
+  color: var(--color-text-muted);
+
   margin-top: 6px;
-  margin-right: 10px;  
+  margin-right: 10px;
 }
+
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-

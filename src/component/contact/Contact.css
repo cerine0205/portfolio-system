@@ -134,8 +134,7 @@
   color: var(--color-text-secondary);
 
   display: inline-block;
-
-  /* animation */
+  
   animation: projectNoteFade 0.45s ease;
 }
 

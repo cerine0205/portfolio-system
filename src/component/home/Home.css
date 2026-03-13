@@ -95,16 +95,12 @@
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  /* تقليل المسافة السفلية */
 }
 
 .featured-star {
   color: var(--color-accent);
-  /* نجم بلون أكسنت */
   margin-right: 5px;
-  /* تقليل المسافة بين النجمة والنص */
   font-size: 18px;
-  /* جعل النجمة أصغر */
 }
 
 .featured-line {
@@ -112,7 +108,6 @@
   margin-left: 10px;
   margin-top: 10px;
   border-top: 0.009px solid var(--color-accent);
-  /* تغيير سمك الخط */
 }
 
 .Featured-card {
@@ -122,12 +117,6 @@
   justify-content: flex-start;
   margin-top: 50px;
 }
-
-
-
-
-
-
 
 .hero-section {
   display: flex;

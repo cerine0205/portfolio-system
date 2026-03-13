@@ -11,14 +11,12 @@
   color: var(--color-text-secondary);
 }
 
-/* الخط بعرض الصفحة */
 .footer-divider {
   width: 100%;
   height: 1px;
   background: var(--color-border);
 }
 
-/* النص */
 .footer-text {
   margin: 0;
   font-size: 15px;
@@ -27,7 +25,6 @@
   text-align: center;
 }
 
-/* روابط السوشيال */
 .footer-links {
   display: flex;
   gap: 28px;
@@ -35,7 +32,6 @@
   justify-content: center;
 }
 
-/* الرابط */
 .footer-links a {
   display: flex;
   align-items: center;

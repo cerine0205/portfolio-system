@@ -35,7 +35,7 @@ export function runCommand(rawCommand, { email, isAuthenticated }) {
         promptLine,
         { text: "Available commands:", className: "info" },
         { text: "", className: "info" },
-        { text: "General", className: "success" },
+        { text: "General", className: "title" },
         { text: "help - show available commands", className: "info" },
         { text: "whoami - about the developer", className: "info" },
         { text: "theme - toggle dark/light mode", className: "info" },
@@ -47,7 +47,7 @@ export function runCommand(rawCommand, { email, isAuthenticated }) {
 
       const adminLines = isAuthenticated
         ? [
-          { text: "Admin", className: "success" },
+          { text: "Admin", className: "title" },
           { text: "msgPanel - open messages panel", className: "info" },
           { text: "projPanel - open projects panel", className: "info" },
           { text: "certPanel - open certificates panel", className: "info" },
