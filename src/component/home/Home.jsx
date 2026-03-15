@@ -53,7 +53,7 @@ function Home({
 
                 <div className="hero-logo">
                     <div className="logo-circle">
-                        <img src="public/assets/DarkModeLogo.jpg" alt="Cerine avatar" className="hero-avatar" />
+                        <img src="https://github.com/cerine0205/portfolio-system/blob/main/public/assets/DarkModeLogo.jpg?raw=true" alt="Cerine avatar" className="hero-avatar" />
                     </div>
                 </div>
 

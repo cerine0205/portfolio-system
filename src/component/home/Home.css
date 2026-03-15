@@ -182,7 +182,7 @@
 }
 
 html[data-theme="light"] .hero-avatar {
-  content: url("../../../public\assets\LightModeLogo.jpg");
+  content: url("https://github.com/cerine0205/portfolio-system/blob/main/public/assets/LightModeLogo.jpg?raw=true");
 }
 
 @media (max-width: 900px) {
