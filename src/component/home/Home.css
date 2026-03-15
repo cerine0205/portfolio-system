@@ -1,19 +1,15 @@
-/* الصفحة الرئيسية */
 .home {
   text-align: left;
-  /* محاذاة النص إلى اليسار */
   padding: 40px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .intro-text {
   color: var(--color-accent);
-  /* اللون البنفسجي أو أي لون تودين استخدامه */
   font-size: 18px;
-  font-weight: 70;
+  font-weight: 300;
 }
 
-/* لتجنب انكسار النص داخل h1 */
 .home h1 {
   font-size: 100px;
   font-weight: 800;
@@ -38,11 +34,9 @@
   margin-top: 30px;
 }
 
-/* الأزرار */
 .home-buttons {
   display: flex;
   justify-content: flex-start;
-  /* محاذاة الأزرار لليسار */
   gap: 20px;
 }
 
@@ -67,7 +61,6 @@
 
 }
 
-
 .contact-me {
   background: transparent;
   color: var(--color-accent);
@@ -88,9 +81,7 @@
 
 .featured-title {
   font-size: 16px;
-  /* جعل الخط أصغر */
-  font-weight: 60;
-  /* جعل الخط أنحف */
+  font-weight: 300;
   color: var(--color-accent);
   display: flex;
   align-items: center;
@@ -129,13 +120,12 @@
   flex: 1;
 }
 
- 
-
 .hero-logo {
   flex:1;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 80px;
   animation: floatHero 6s ease-in-out infinite;
 }
 
@@ -196,20 +186,53 @@ html[data-theme="light"] .hero-avatar {
 }
 
 @media (max-width: 900px) {
-  .hero-section {
-    flex-direction: column;
-    text-align: left;
-  }
 
-  .hero-logo {
-    margin-top: 40px;
-    width: 100%;
-    justify-content: center;
-  }
+.hero-section {
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
 
-  .logo-circle {
-    width: 250px;
-    height: 250px;
-    font-size: 48px;
-  }
+.home h1,
+.home h1 span {
+  font-size: 72px;
+}
+
+.logo-circle {
+  width: 220px;
+  height: 220px;
+}
+
+.hero-logo {
+  margin-top: -40px;
+}
+
+}
+
+@media (max-width: 480px) {
+
+.home {
+  padding: 30px 16px;
+}
+
+.home h1,
+.home h1 span {
+  font-size: 44px;
+  line-height: 1;
+}
+
+.logo-circle {
+  width: 140px;
+  height: 140px;
+}
+
+.hero-logo {
+  margin-bottom: 150px;
+}
+
+.home-buttons {
+  flex-direction: column;
+  width: 100%;
+}
+
 }
