@@ -133,7 +133,7 @@ function AdminProjects() {
       screenshots: project.screenshots
         ? project.screenshots.map((shot) => shot.image).join(", ")
         : "",
-      features: project.features ? project.features.join(", ") : "",
+      features: project.features ? project.features.join("\n") : "",
       architecture: project.architecture || "",
       architecture_image: project.architecture_image || "",
       refactor_notes: project.refactor_notes || "",
@@ -176,7 +176,7 @@ function AdminProjects() {
         ? formData.screenshots.split(",").map((item) => item.trim()).filter(Boolean)
         : [],
       features: formData.features
-        ? formData.features.split(",").map((item) => item.trim()).filter(Boolean)
+        ? formData.features.split("\n").map((item) => item.trim()).filter(Boolean)
         : [],
       architecture: formData.architecture || null,
       architecture_image: formData.architecture_image || null,

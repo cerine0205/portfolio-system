@@ -148,10 +148,9 @@ function ProjectForm({
                   onChange={handleChange}
                 />
 
-                <input
-                  type="text"
+                <textarea
                   name="features"
-                  placeholder="Features (Multi-step form, CSV export)"
+                  placeholder="One feature per line"
                   value={formData.features}
                   onChange={handleChange}
                 />
