@@ -24,8 +24,8 @@ function Header({ ActivePage, setActivePage, handelAdmin, setContactProject }) {
         <div className="left-side">
           <div className="theme-container">
             <button onClick={handleToggle} className="theme-btn">
-              {dark ? (<img src="https://cerine0205.github.io/portfolio-system/assets/sun.png" alt="Light Mode" className="theme-icon" />)
-                : (<img src="https://cerine0205.github.io/portfolio-system/assets/moon.png" alt="Dark Mode" className="theme-icon" />)}
+              {dark ? (<img src="https://cerine0205.github.io/portfolio-system/assets/moon.png" alt="Light Mode" className="theme-icon" />)
+                : (<img src="https://cerine0205.github.io/portfolio-system/assets/sun.png" alt="Dark Mode" className="theme-icon" />)}
             </button>
           </div>
 
