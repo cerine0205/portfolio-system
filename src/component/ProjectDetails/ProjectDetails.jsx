@@ -1,4 +1,5 @@
 import "./ProjectDetails.css";
+import { useState } from "react";
 
 function ProjectDetails({
   project,
@@ -6,6 +7,9 @@ function ProjectDetails({
   setContactProject,
   projectBackPage,
 }) {
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
   if (!project) {
     return (
       <div className="project-details">
@@ -40,6 +44,7 @@ function ProjectDetails({
           <img
             src={project.image || "/assets/background.png"}
             alt={project.name}
+            onClick={() => setSelectedImage(project.image)}
             className="project-hero-image"
             onError={(e) => {
               e.target.src = "/assets/background.png";
@@ -231,6 +236,7 @@ function ProjectDetails({
               <img
                 src={project.architecture_image}
                 alt="System architecture diagram"
+                onClick={() => setSelectedImage(project.architecture_image)}
                 className="project-architecture-image"
               />
             )}
@@ -262,12 +268,20 @@ function ProjectDetails({
                 <img
                   src={shot.image}
                   alt={`${project.name} screenshot`}
+                  onClick={() => setSelectedImage(shot.image)}
                   className="gallery-image"
                 />
               </div>
             ))}
           </div>
         </section>
+      )}
+
+
+      {selectedImage && (
+        <div className="image-modal" onClick={() => setSelectedImage(null)}>
+          <img src={selectedImage} alt="preview" />
+        </div>
       )}
 
       <div className="project-cta">
