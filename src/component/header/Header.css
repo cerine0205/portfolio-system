@@ -160,36 +160,61 @@
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 430px) {
+  .header-container {
+    padding: 14px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 
-.header-container {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-}
+  .left-side {
+    gap: 8px;
+  }
 
-.right-side {
-  width: 100%;
-  justify-content: space-between;
-}
+  .right-side {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
 
-.nav-list {
-  gap: 12px;
-  flex-wrap: wrap;
-}
+  .header-nav {
+    flex: 1;
+    min-width: 0;
+  }
 
-.nav-item,
-.nav-item-active {
-  font-size: 10px;
-}
+  .nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
 
-.logo h1 {
-  font-size: 16px;
-}
+  .nav-item,
+  .nav-item-active {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
 
-.admin-btn {
-  padding: 6px 10px;
-  font-size: 9px;
-}
+  .admin-btn {
+    flex: 0 0 auto;
+    padding: 6px 10px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
 
+  .logo h1 {
+    font-size: 16px;
+  }
+
+  .theme-icon {
+    width: 20px;
+    height: 20px;
+  }
 }
