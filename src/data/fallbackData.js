@@ -45,14 +45,32 @@ export const fallbackProjects = [
       "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/architecture.jpg?raw=true",
     refactor_notes:
       "Add persistent data storage so pet data is saved instead of being stored in memory only.",
-    tags: ["C#", "Desktop App", "Windows Form"],
+    tags: [{ name: "C#" }, { name: "Desktop App" }, { name: "Windows Form" }],
     screenshots: [
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-1.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-2.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-3.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-4.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-5.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-6.png?raw=true",
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-1.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-2.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-3.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-4.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-5.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/pet-care-system/Screenshot-6.png?raw=true",
+      },
     ],
   },
   {
@@ -101,16 +119,40 @@ export const fallbackProjects = [
       "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/architecture.jpg?raw=true",
     refactor_notes:
       "A future improvement for this project is to replace the current mock setup with a real backend integration. This would allow the dashboard to use a proper REST API with persistent database storage, making the data flow more realistic and scalable for real-world use.",
-    tags: ["React", "Frontend", "Dashboard"],
+    tags: [{ name: "React" }, { name: "Frontend" }, { name: "Dashboard" }],
     screenshots: [
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-1.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-2.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-3.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-4.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-5.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-6.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-7.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-8.png?raw=true",
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-1.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-2.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-3.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-4.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-5.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-6.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-7.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/perfume-dashboard/Screenshot-8.png?raw=true",
+      },
     ],
   },
   {
@@ -164,16 +206,45 @@ export const fallbackProjects = [
       "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/architecture.jpg?raw=true",
     refactor_notes:
       "Future improvements may include expanding the playable area to cover a larger part of the city and introducing optional challenges such as collectible coins to enhance player engagement and exploration.",
-    tags: ["Unity", "C#", "Game Development", "WebGL"],
+    tags: [
+      { name: "Unity" },
+      { name: "C#" },
+      { name: "Game Development" },
+      { name: "WebGL" },
+    ],
     screenshots: [
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-1.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-2.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-3.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-4.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-5.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-6.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-7.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-8.png?raw=true",
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-1.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-2.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-3.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-4.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-5.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-6.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-7.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/roof-jumps-game/Screenshot-8.png?raw=true",
+      },
     ],
   },
   {
@@ -229,16 +300,47 @@ export const fallbackProjects = [
       "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/architecture.jpg?raw=true",
     refactor_notes:
       "Future work will focus on enabling the full AI workflow and improving the intelligence of the agent.\n\nPlanned improvements include reconnecting the n8n workflow so the agent can communicate with the web version of the game, and evolving the current rule-based agent into a machine learning–based system that learns player behavior and adapts the UI more effectively.",
-    tags: ["Unity", "C#", "Game Development", "WebGL", "AI", "AI Agent"],
+    tags: [
+      { name: "Unity" },
+      { name: "C#" },
+      { name: "Game Development" },
+      { name: "WebGL" },
+      { name: "AI" },
+      { name: "AI Agent" },
+    ],
     screenshots: [
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-1.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-2.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-3(1).png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-4.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-5.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-6.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-7.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-8.jpg?raw=true",
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-1.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-2.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-3(1).png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-4.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-5.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-6.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-7.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/BetaMinds/Screenshot-8.jpg?raw=true",
+      },
     ],
   },
   {
@@ -300,16 +402,40 @@ export const fallbackProjects = [
       "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/architecture.jpg?raw=true",
     refactor_notes:
       "A future refactor for this project is to convert it from a Windows Forms desktop application into a web-based application to improve accessibility and make it easier to use across different devices without requiring local installation.",
-    tags: ["Windows Forms", "Desktop App"],
+    tags: [{ name: "Windows Forms" }, { name: "Desktop App" }],
     screenshots: [
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-1.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-2.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-3.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-4.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-5.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-6.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-7.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-8.png?raw=true",
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-1.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-2.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-3.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-4.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-5.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-6.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-7.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/study-planner/Screenshot-8.png?raw=true",
+      },
     ],
   },
   {
@@ -353,7 +479,12 @@ export const fallbackProjects = [
       "Unity-based web game where players explore engineering fields through interactive environments. Each field contains gates that lead to scenes or educational panels that demonstrate engineering ideas through interaction.",
     architecture_image: null,
     refactor_notes: null,
-    tags: ["Unity", "C#", "Game Development", "WebGL"],
+    tags: [
+      { name: "Unity" },
+      { name: "C#" },
+      { name: "Game Development" },
+      { name: "WebGL" },
+    ],
     screenshots: [],
   },
   {
@@ -400,14 +531,37 @@ export const fallbackProjects = [
       "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/architecture.jpg?raw=true",
     refactor_notes:
       "Possible improvements include rendering form questions dynamically instead of hardcoded JSX, improving how responses are structured instead of storing them in a single answers field, and migrating the backend from the Render free plan to a more stable hosting solution.",
-    tags: ["Full-Stack", "React", "Laravel", "REST API"],
+    tags: [
+      { name: "Full-Stack" },
+      { name: "React" },
+      { name: "Laravel" },
+      { name: "REST API" },
+    ],
     screenshots: [
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-1.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-2.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-3.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-4.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-5.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-6.png?raw=true",
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-1.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-2.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-3.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-4.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-5.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/mawhiba-feedback-form/Screenshot-6.png?raw=true",
+      },
     ],
   },
   {
@@ -469,16 +623,45 @@ export const fallbackProjects = [
       "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/architecture.jpg?raw=true",
     refactor_notes:
       "A future refactor may include adding a chasing enemy using an animation-based approach. This was difficult to implement in the current version because the player remains mostly stationary while the environment moves toward the player, which makes traditional chase behavior less believable. Using animation-driven behavior instead of real movement may make this feature more suitable in a later iteration.",
-    tags: ["Unity", "C#", "Game Development", "WebGL"],
+    tags: [
+      { name: "Unity" },
+      { name: "C#" },
+      { name: "Game Development" },
+      { name: "WebGL" },
+    ],
     screenshots: [
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-1.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-4.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-3.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-5.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-2.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-6.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-7.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-8.png?raw=true",
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-1.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-4.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-3.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-5.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-2.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-6.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-7.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/fast-rails/Screenshot-8.png?raw=true",
+      },
     ],
   },
   {
@@ -552,26 +735,49 @@ export const fallbackProjects = [
     refactor_notes:
       "Future improvements include supporting image uploads instead of relying on image URLs, Adding analytics to better understand how visitors interact with projects. The system can also be deployed to a production server instead of running locally. Additional enhancements include creating a dedicated certificates page to display all certificates instead of limiting them to three in the About section, adding support for editing skills, and enabling custom ordering of projects and certificates to control their display priority.",
     tags: [
-      "Full-Stack",
-      "React",
-      "Laravel",
-      "System Design",
-      "REST API",
-      "Dashboard",
+      { name: "Full-Stack" },
+      { name: "React" },
+      { name: "Laravel" },
+      { name: "System Design" },
+      { name: "REST API" },
+      { name: "Dashboard" },
     ],
     screenshots: [
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-1.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-2.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-3.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-4.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-5.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-6.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-7.png?raw=true",
-      "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-8.png?raw=true",
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-1.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-2.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-3.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-4.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-5.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-6.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-7.png?raw=true",
+      },
+      {
+        image:
+          "https://github.com/cerine0205/portfolio-system/blob/main/public/projects/portfolio/Screenshot-8.png?raw=true",
+      },
     ],
   },
 ];
-
 
 export const fallbackCertificates = [
   {
