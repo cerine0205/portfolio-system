@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Home from "../home/Home";
 import Projects from "../projects/Projects";
 import About from "../about/About";
@@ -25,53 +26,73 @@ function MainContent({ ActivePage,
   skills,
   offlineMode }) {
 
-  if (ActivePage === "Home") {
-    return <Home
-      activePage={ActivePage}
-      setActivePage={setActivePage}
-      projects={projects} 
-      setContactProject={setContactProject}
-      setSelectedProject={setSelectedProject}
-      setProjectBackPage={setProjectBackPage}/>;
-  }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [ActivePage]);
 
-  else if (ActivePage === "Projects") {
-    return <Projects
-      activeTag={activeTag}
-      setActiveTag={setActiveTag}
-      tagsData={tagsData}
-      projects={projects}
-      setSelectedProject={setSelectedProject}
-      setActivePage={setActivePage}
-      setProjectBackPage={setProjectBackPage} />;
 
-  } else if (ActivePage === "About") {
-    return <About
-      setActivePage={setActivePage}
-      certificates={certificates}
-      setSelectedCertificate={setSelectedCertificate}
-      skills= {skills} />;
-  }
+  const pages = {
+    Home: (
+      <Home
+        activePage={ActivePage}
+        setActivePage={setActivePage}
+        projects={projects}
+        setContactProject={setContactProject}
+        setSelectedProject={setSelectedProject}
+        setProjectBackPage={setProjectBackPage}
+      />
+    ),
 
-  else if (ActivePage === "Contact") {
-    return <Contact
-    contactProject={contactProject}
-    offlineMode={offlineMode} />;
-  }
+    Projects: (
+      <Projects
+        activeTag={activeTag}
+        setActiveTag={setActiveTag}
+        tagsData={tagsData}
+        projects={projects}
+        setSelectedProject={setSelectedProject}
+        setActivePage={setActivePage}
+        setProjectBackPage={setProjectBackPage}
+      />
+    ),
 
-  else if (ActivePage === "ProjectDetails") {
-    return <ProjectDetails
-      project={selectedProject}
-      setActivePage={setActivePage} 
-      setContactProject={setContactProject}
-      projectBackPage={projectBackPage}/>;
-  }
+    About: (
+      <About
+        setActivePage={setActivePage}
+        certificates={certificates}
+        setSelectedCertificate={setSelectedCertificate}
+        skills={skills}
+      />
+    ),
 
-  else if (ActivePage === "CertificateDetails") {
-    return <CertificateDetails
-      selectedCertificate={selectedCertificate}
-      setActivePage={setActivePage} />;
-  }
+    Contact: (
+      <Contact
+        contactProject={contactProject}
+        offlineMode={offlineMode}
+      />
+    ),
+
+    ProjectDetails: (
+      <ProjectDetails
+        project={selectedProject}
+        setActivePage={setActivePage}
+        setContactProject={setContactProject}
+        projectBackPage={projectBackPage}
+      />
+    ),
+
+    CertificateDetails: (
+      <CertificateDetails
+        selectedCertificate={selectedCertificate}
+        setActivePage={setActivePage}
+      />
+    ),
+  };
+
+  return (
+    <div key={ActivePage} className="page-fade">
+      {pages[ActivePage] || null}
+    </div>
+  );
 
 }
 
